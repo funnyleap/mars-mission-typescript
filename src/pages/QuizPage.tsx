@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./QuizPage.scss";
 import Answer from "../components/quiz/Answer";
+import GameOver from "../components/quiz/GameOver";
 
 function QuizPage() {
   const questions = [
@@ -42,14 +43,22 @@ function QuizPage() {
     },
   ];
 
+  const [seconds, setSeconds] = useState(30);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showResults, setShowResults] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
+  const [firstIncorrect, setFirstIncorrect] = useState(true);
+
+  useEffect(() => {
+    startTimer()
+  }, []);
 
   const handleAnswerOptionClick = (isCorrect: boolean) => {
     if (isCorrect) {
+      setFirstIncorrect(true)
       setTimeout(() => {
         console.log("correct");
+        setSeconds((prevSeconds) => Math.min(prevSeconds + 5, 30));
         // setButtonClicked(false);
         setScore(score + 1);
         //Change the button to correct
@@ -59,21 +68,48 @@ function QuizPage() {
         if (nextQuestion < questions.length) {
           setCurrentQuestion(nextQuestion);
         } else {
-          setShowResults(true);
+          setGameOver(true);
+          setSeconds(0)
         }
       }, 500);
     } else {
+      setSeconds((prevSeconds) => Math.max(prevSeconds - 5, 0));
+      if (firstIncorrect) {
+        setScore(score - 1);
+        setFirstIncorrect(false);
+      } 
       // Change button to incorrect
       // Reduce timer
     }
   };
 
+  function resetGame() {
+    setSeconds(30);
+    setScore(0);
+    setCurrentQuestion(0);
+    setGameOver(false);
+    setFirstIncorrect(false);
+    startTimer();
+  }
+
+  function startTimer() {
+    const interval = setInterval(() => {
+      setSeconds((prevSeconds) => {
+        if (prevSeconds <= 1) {
+          setGameOver(true)
+          clearInterval(interval);
+        }
+        return Math.max(prevSeconds - 1, 0);
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }
+
   return (
     <div className="QuizPage">
-      {showResults ? (
-        <div className="QuizPage__result">
-          You scored {score} out of {questions.length}
-        </div>
+      {gameOver ? (
+        <GameOver resetGame={resetGame} />
       ) : (
         <>
           <div className="QuizPage__question-section">
@@ -88,6 +124,7 @@ function QuizPage() {
           </div>
           <div>
             <p>Score: {score}</p>
+            <p>Timer: {seconds}</p>
           </div>
           <div className="QuizPage__answers">
             {questions[currentQuestion].answerOptions.map((answerOption) => (
