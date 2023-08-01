@@ -1,24 +1,28 @@
 import { useState, useEffect } from "react";
-import { getGalleryPhotos } from "../api/nasaApi";
+import { GalleryPhotoDetails, getGalleryPhotos } from "../api/nasaApi";
 import Button from "../components/Button";
 
 const GalleryPage = () => {
-  const [galleryPhotos, setGalleryPhotos] = useState<string>("");
-  const [galleryPhotoUrl, setGalleryPhotoUrl] = useState<string>();
+  const [galleryPhotos, setGalleryPhotos] = useState<GalleryPhotoDetails[]>();
 
   useEffect(() => {
     getGalleryPhotos().then((data) => {
-      console.log(data);
-      setGalleryPhotos(data.photos[0].earth_date);
-      setGalleryPhotoUrl(data.photos[0].img_src);
+      setGalleryPhotos(data.photos);
     });
   }, []);
 
   return (
     <div>
       <h1>Mars Mission Gallery</h1>
-      {galleryPhotoUrl ? (
-        <img alt={galleryPhotos} src={galleryPhotoUrl} />
+      {galleryPhotos ? (
+        galleryPhotos.map((imageDetails) => (
+          <img
+            src={imageDetails.img_src}
+            alt="Image Thumbnail"
+            width={300}
+            height={200}
+          />
+        ))
       ) : (
         <p>Loading...</p>
       )}

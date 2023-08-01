@@ -12,7 +12,7 @@ export const getPhotoOfTheDayData = async (): Promise<PhotoOfTheDayData> => {
   return await response.json();
 };
 
-interface GalleryPhotoDetails {
+export interface GalleryPhotoDetails {
   img_src: string;
   id: number;
   sol: number;
@@ -45,3 +45,16 @@ export const getGalleryPhotos = async (): Promise<GalleryDetails> => {
   );
   return await response.json();
 };
+
+// *    fetch('https://jsonplaceholder.typicode.com/posts')
+//  .then((res) => res.json())
+//  .then((data) =>
+//    {
+//    data = data.filter(entry => entry.created > someValue)
+//    .slice(0, 1000);
+//    // Limit to 1000
+//    // ...use data... })
+//   .catch(error => {
+//      // <=== handle errors
+//      // Handle error... })
+//    }
