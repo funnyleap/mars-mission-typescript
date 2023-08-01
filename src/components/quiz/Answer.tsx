@@ -15,12 +15,12 @@ export default function Answer({
 
   function onClickHandler(isCorrect: boolean) {
     setButtonClicked(true);
+    setTimeout(() => {
+      setButtonClicked(false);
+    }, 500);
+
     handleAnswerOptionClick(isCorrect);
   }
-
-  // function resetAnswer(){
-  //     setButtonClicked(false)
-  // }
 
   const clickedClassName = isCorrect
     ? "QuizPage__answer QuizPage__answer--correct"

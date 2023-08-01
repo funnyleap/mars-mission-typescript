@@ -48,21 +48,26 @@ function QuizPage() {
 
   const handleAnswerOptionClick = (isCorrect: boolean) => {
     if (isCorrect) {
-      setScore(score + 1);
-      //Change the button to correct
-      //Increase timer
-      // Move onto next question
-      const nextQuestion = currentQuestion + 1;
-      if (nextQuestion < questions.length) {
-        setCurrentQuestion(nextQuestion);
-      } else {
-        setShowResults(true);
-      }
+      setTimeout(() => {
+        console.log("correct");
+        // setButtonClicked(false);
+        setScore(score + 1);
+        //Change the button to correct
+        //Increase timer
+        // Move onto next question
+        const nextQuestion = currentQuestion + 1;
+        if (nextQuestion < questions.length) {
+          setCurrentQuestion(nextQuestion);
+        } else {
+          setShowResults(true);
+        }
+      }, 500);
     } else {
       // Change button to incorrect
       // Reduce timer
     }
   };
+
   return (
     <div className="QuizPage">
       {showResults ? (
@@ -80,6 +85,9 @@ function QuizPage() {
             <div className="QuizPage__question-text">
               <p>{questions[currentQuestion].questionText}</p>
             </div>
+          </div>
+          <div>
+            <p>Score: {score}</p>
           </div>
           <div className="QuizPage__answers">
             {questions[currentQuestion].answerOptions.map((answerOption) => (
