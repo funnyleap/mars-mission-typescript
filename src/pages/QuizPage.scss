@@ -1,0 +1,47 @@
+$mobile-gutter: 0.4rem;
+
+body {
+  margin: 0px;
+}
+
+.QuizPage {
+  font-size: 2rem;
+  max-width: 80vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: space-between;
+
+  &__question-section {
+    background-color: aqua;
+    margin-top: 3rem;
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-gutter;
+
+    font-size: 10rem;
+
+    margin-bottom: 3rem;
+  }
+
+  &__answer {
+    font-size: 1.5rem;
+
+    &:hover {
+      background-color: blue;
+    }
+
+    &--correct {
+      background-color: green;
+    }
+
+    &--incorrect {
+      background-color: red;
+    }
+  }
+}
