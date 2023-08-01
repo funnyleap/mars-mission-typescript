@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./QuizPage.scss";
 import Answer from "../components/quiz/Answer";
 import GameOver from "../components/quiz/GameOver";
+import QuizPassed from "../components/quiz/QuizPassed";
 
 function QuizPage() {
   const questions = [
@@ -48,6 +49,7 @@ function QuizPage() {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [firstIncorrect, setFirstIncorrect] = useState(true);
+  const [gameWon, setGameWon] = useState(false);
 
   useEffect(() => {
     startTimer()
@@ -68,8 +70,9 @@ function QuizPage() {
         if (nextQuestion < questions.length) {
           setCurrentQuestion(nextQuestion);
         } else {
+          setGameWon(true);
           setGameOver(true);
-          setSeconds(0)
+          setSeconds(0);
         }
       }, 500);
     } else {
@@ -90,6 +93,7 @@ function QuizPage() {
     setGameOver(false);
     setFirstIncorrect(false);
     startTimer();
+    setGameWon(false);
   }
 
   function startTimer() {
@@ -108,7 +112,9 @@ function QuizPage() {
 
   return (
     <div className="QuizPage">
-      {gameOver ? (
+      {gameOver ? ( gameWon ?
+        <QuizPassed resetGame={resetGame} />
+        :
         <GameOver resetGame={resetGame} />
       ) : (
         <>
