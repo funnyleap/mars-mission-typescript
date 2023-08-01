@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { getPhotoOfTheDayData } from "../api/nasaApi";
 import Button from "../components/Button";
-import { getRandomQuestions } from "../../data/quizdata";
 
 const Home = () => {
   const [photoOfTheDayTitle, setPhotoOfTheDayTitle] = useState<string>();
@@ -21,9 +20,6 @@ const Home = () => {
         <img alt={photoOfTheDayTitle} src={photoOfTheDayUrl} />
       )}
       <Button onClick={() => alert("Hello!")}>Click me</Button>
-      {getRandomQuestions().map((q) => (
-        <div>{q.questionText}</div>
-      ))}
     </div>
   );
 };
