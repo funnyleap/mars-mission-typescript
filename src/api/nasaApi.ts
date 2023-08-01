@@ -12,6 +12,7 @@ export const getPhotoOfTheDayData = async (): Promise<PhotoOfTheDayData> => {
   return await response.json();
 };
 
+/* Start of Gallery Photos and Details Request Trello ticket mm-40 */
 export interface GalleryPhotoDetails {
   img_src: string;
   id: number;
@@ -41,20 +42,8 @@ interface GalleryDetails {
 
 export const getGalleryPhotos = async (): Promise<GalleryDetails> => {
   const response = await fetch(
-    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=${apiKey}`,
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&camera=mast&api_key=${apiKey}`,
   );
   return await response.json();
 };
-
-// *    fetch('https://jsonplaceholder.typicode.com/posts')
-//  .then((res) => res.json())
-//  .then((data) =>
-//    {
-//    data = data.filter(entry => entry.created > someValue)
-//    .slice(0, 1000);
-//    // Limit to 1000
-//    // ...use data... })
-//   .catch(error => {
-//      // <=== handle errors
-//      // Handle error... })
-//    }
+/* End of Gallery Photos and Details Request Trello ticket mm-40 */

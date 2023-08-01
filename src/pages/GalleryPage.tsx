@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { GalleryPhotoDetails, getGalleryPhotos } from "../api/nasaApi";
-import Button from "../components/Button";
+import Gallery from "../components/Gallery";
 
 const GalleryPage = () => {
   const [galleryPhotos, setGalleryPhotos] = useState<GalleryPhotoDetails[]>();
@@ -15,18 +15,10 @@ const GalleryPage = () => {
     <div>
       <h1>Mars Mission Gallery</h1>
       {galleryPhotos ? (
-        galleryPhotos.map((imageDetails) => (
-          <img
-            src={imageDetails.img_src}
-            alt="Image Thumbnail"
-            width={300}
-            height={200}
-          />
-        ))
+        <Gallery galleryPhotos={galleryPhotos} />
       ) : (
         <p>Loading...</p>
       )}
-      <Button onClick={() => alert("Hello!")}>Click me</Button>
     </div>
   );
 };
