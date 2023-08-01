@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getPhotoOfTheDayData } from "../api/nasaApi";
 import Button from "../components/Button";
-import { getRandomQuestions } from "../components/data/quizdata";
+import { getRandomQuestions } from "../../data/quizdata";
 
 const Home = () => {
   const [photoOfTheDayTitle, setPhotoOfTheDayTitle] = useState<string>();
