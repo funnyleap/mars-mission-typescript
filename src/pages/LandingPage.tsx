@@ -18,28 +18,28 @@ const pageButtons: PageButton[] = [
     name: "Rovers",
     icon: iconRovers,
     heading: "Discover Rovers",
-    className: "LandingPage__Dashboard__Item--rovers",
+    className: "LandingPage__DashboardItemIcon--rovers",
     path: "/rovers",
   },
   {
     name: "Birthday Card",
     icon: iconBirthdayCard,
     heading: "Make a Birthday Card",
-    className: "LandingPage__Dashboard__Item--birthdayCard",
+    className: "LandingPage__DashboardItemIcon--birthdayCard",
     path: "/birthday-card",
   },
   {
     name: "Quiz",
     icon: iconQuiz,
     heading: "Take our Quiz",
-    className: "LandingPage__Dashboard__Item--quiz",
+    className: "LandingPage__DashboardItemIcon--quiz",
     path: "/quiz",
   },
   {
     name: "Weather",
     icon: iconWeather,
     heading: "Check the weather on Mars",
-    className: "LandingPage__Dashboard__Item--weather",
+    className: "LandingPage__DashboardItemIcon--weather",
     path: "/weather",
   },
 ];
@@ -59,13 +59,13 @@ const LandingPage = () => {
       <nav className="LandingPage__Dashboard">
         {pageButtons.map((pageButton) => (
           <Link to={pageButton.path} key={pageButton.name}>
-            <div className="LandingPage__Dashboard__Item">
+            <div className="LandingPage__DashboardItem">
               <div
-                className={`LandingPage__Dashboard__Item--icon ${pageButton.className}`}
+                className={`LandingPage__DashboardItemIcon ${pageButton.className}`}
               >
                 <img src={pageButton.icon} alt={pageButton.name} />
               </div>
-              <div className="LandingPage__Dashboard__Item--tile">
+              <div className="LandingPage__DashboardItemTile">
                 {pageButton.heading}
               </div>
             </div>
