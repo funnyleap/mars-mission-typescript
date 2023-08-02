@@ -1,0 +1,181 @@
+@use "../styles/variables" as *;
+
+.LandingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__Heading {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+  }
+
+  &__HeadingCapsule {
+    margin: auto;
+    padding: 2rem 2rem 1rem;
+    border: 0.125rem solid $color-background;
+    border-radius: 5rem;
+    box-shadow: 0.125rem 0.25rem 1.5rem $color-foreground;
+    font-size: 3rem;
+    color: $header-font-color;
+    text-align: center;
+    text-shadow:
+      -0.03125em 0 $color-background,
+      0 0.03125em $color-background,
+      0.03125em 0 $color-background,
+      0 -0.03125em $color-background;
+
+    &--mars {
+      margin-left: -1em;
+      margin-bottom: -0.5em;
+      background-color: $mars-header-background;
+      transform: rotate(-10deg);
+    }
+
+    &--mission {
+      transform: rotate(5deg);
+      margin-left: 0.5em;
+      background-color: $mission-header-background;
+    }
+  }
+
+  &__Dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    margin-top: 3em;
+
+    a {
+      color: $color-background;
+      text-decoration: none;
+    }
+  }
+
+  &__DashboardItem {
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      .LandingPage__DashboardItemIcon {
+        transform: scale(1.05);
+      }
+
+      .LandingPage__DashboardItemTile {
+        background-color: $button-dashboard-hover;
+      }
+    }
+  }
+
+  &__DashboardItemIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: 4rem;
+    height: 4rem;
+    margin-right: -2em;
+    padding: 1em;
+    border: 0.09375rem solid $color-background;
+    border-radius: 0.25rem;
+    transition: transform 0.25s;
+
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &--rovers {
+      background-color: $button-dashboard-blue;
+    }
+
+    &--birthdayCard {
+      background-color: $button-dashboard-green;
+    }
+
+    &--quiz {
+      background-color: $button-dashboard-pink;
+    }
+
+    &--weather {
+      background-color: $button-dashboard-purple;
+    }
+  }
+
+  &__DashboardItemTile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    width: 12.5rem;
+    gap: 1em;
+    padding-left: 3em;
+    padding-right: 1em;
+    border: 0.125rem solid $color-background;
+    border-radius: 0.25rem;
+    background-color: $button-dashboard-background;
+    text-align: center;
+    font-weight: bold;
+    font-family: $dashboard-font;
+    transition: background-color 0.25s;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .LandingPage {
+    &__Heading {
+      padding-left: 4rem;
+    }
+
+    &__HeadingCapsule {
+      box-shadow: 0.125rem 0.25rem 1.5rem $color-background;
+      font-size: 4.5rem;
+    }
+
+    &__Dashboard {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4.5em;
+      width: 40rem;
+    }
+
+    &__DashboardItem {
+      transform: scale(1.2);
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .LandingPage {
+    flex-direction: row;
+
+    &__HeadingCapsule {
+      font-size: 5.5rem;
+      margin-left: 1em;
+      padding: 2.5rem 2.5rem 1.25rem;
+      border-radius: 5.5rem;
+      border-width: 0.375rem;
+
+      &--mars {
+        margin-bottom: -0.2em;
+        margin-left: -0.2em;
+      }
+    }
+
+    &__Dashboard {
+      flex-direction: column;
+      width: 30rem;
+    }
+
+    &__DashboardItem {
+      transform: scale(1.5);
+    }
+  }
+}
