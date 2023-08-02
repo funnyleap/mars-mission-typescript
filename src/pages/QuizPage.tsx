@@ -164,7 +164,7 @@ function QuizPage() {
       content = <GameOver resetGame={resetGame} />;
       break;
     case "gameWon":
-      content = <QuizPassed resetGame={resetGame} />;
+      content = <QuizPassed resetGame={resetGame} score={score} />;
       break;
     default:
       content = questions ? (

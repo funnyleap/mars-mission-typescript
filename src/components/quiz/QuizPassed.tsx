@@ -4,6 +4,7 @@ import "./QuizPassed.scss";
 
 interface QuizPassedProps {
   resetGame(): void;
+  score: number;
 }
 
 const setLocalCookie = (name: string, value: string, daysToExpire: number) => {
@@ -18,12 +19,13 @@ const setLocalCookie = (name: string, value: string, daysToExpire: number) => {
   document.cookie = cookieString;
 };
 
-function QuizPassed({ resetGame }: QuizPassedProps) {
+function QuizPassed({ resetGame, score }: QuizPassedProps) {
   useEffect(() => {
     setLocalCookie("security-clearance", "super-secret-cleared", 1);
   });
-
-  const tweetText = `I just scored 2 on the mars quiz`;
+  const tweetLink = '&url=http%3A%2F%2Fgithub%2Ecom';
+  const tweetText = `I just scored ${score}/10 on the mars quiz. Try beat my score`;
+  // const tweetLink = '&url=http%3A%2F%2Flocalhost%3A5173%2Fmars%2Dmission%2D2023%2Daug%2F%23%2Fquiz';
   const tweetTextQuery = tweetText.replace(/ /g, "%20");
   return (
     <div className="QuizPage__result-pass">
@@ -35,7 +37,7 @@ function QuizPassed({ resetGame }: QuizPassedProps) {
       <a
         className="twitter-share-button"
         target="_blank"
-        href={`https://twitter.com/intent/tweet?text=${tweetTextQuery}`}
+        href={`https://twitter.com/intent/tweet?text=${tweetTextQuery}${tweetLink}`}
       >
         <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" />{" "}
         Share
