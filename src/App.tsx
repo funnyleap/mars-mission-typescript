@@ -1,12 +1,12 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/LandingPage";
 import FactsPage from "./components/FactList";
+import LandingPage from "./pages/LandingPage";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/facts" element={<FactsPage />} />
       </Routes>
     </Router>
