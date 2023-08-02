@@ -1,0 +1,50 @@
+@use "variables" as *;
+
+.facts-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  color: #fff;
+}
+
+.facts-header {
+  font-size: 12rem;
+  text-align: center;
+  padding: 0;
+}
+
+.section-header {
+  font-size: 8rem;
+  text-align: center;
+}
+
+.fact-header {
+  font-size: 5rem;
+  text-align: left;
+}
+
+.facts-list {
+  display: grid;
+  row-gap: 1rem;
+  grid-template-columns: auto;
+}
+
+li {
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: center;
+}
+
+.fact-image {
+  height: 300px;
+}
+
+.fact-text {
+  margin: 3rem;
+  font-size: 2rem;
+}
