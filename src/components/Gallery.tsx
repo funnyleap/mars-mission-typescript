@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { GalleryPhotoDetails } from "../api/nasaApi";
 import "./Gallery.scss";
-import Button from "./Button";
-
+import Modal from "./Modal";
 interface GalleryProps {
   galleryPhotos: GalleryPhotoDetails[];
 }
@@ -16,6 +15,7 @@ const Gallery = ({ galleryPhotos }: GalleryProps) => {
       {galleryPhotos ? (
         galleryPhotos.map((photoDetails) => (
           <img
+            className="ImageCard"
             src={photoDetails.img_src}
             onClick={() => setSelectedPhotoDetails(photoDetails)}
             alt="Image Thumbnail"
@@ -26,28 +26,20 @@ const Gallery = ({ galleryPhotos }: GalleryProps) => {
         <p>Loading...</p>
       )}
       {selectedPhotoDetails && (
-        <div className="Modal__Backdrop">
-          <div className="Modal">
-            <Button
-              className="Modal__Close"
-              onClick={() => setSelectedPhotoDetails(undefined)}
-            >
-              ×
-            </Button>
-            <img
-              className="Gallery__ModalImage"
-              src={selectedPhotoDetails.img_src}
-              alt="Enlarged Image"
-              width={800}
-            />
-            <p className="Image_Details">
-              Taken by the {selectedPhotoDetails.camera.full_name}, on{" "}
-              {selectedPhotoDetails.rover.name} on Martian sol{" "}
-              {selectedPhotoDetails.sol} (Earth Date{" "}
-              {selectedPhotoDetails.earth_date})
-            </p>
-          </div>
-        </div>
+        <Modal closeAction={() => setSelectedPhotoDetails(undefined)}>
+          <img
+            className="Gallery__ModalImage"
+            src={selectedPhotoDetails.img_src}
+            alt="Enlarged Image"
+            width={800}
+          />
+          <p className="Gallery__ModalImageDetails">
+            Taken by the {selectedPhotoDetails.camera.full_name}, on{" "}
+            {selectedPhotoDetails.rover.name} on Martian sol{" "}
+            {selectedPhotoDetails.sol} (Earth Date{" "}
+            {selectedPhotoDetails.earth_date})
+          </p>
+        </Modal>
       )}
     </div>
   );

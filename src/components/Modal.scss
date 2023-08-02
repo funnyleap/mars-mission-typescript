@@ -1,0 +1,30 @@
+.Modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  padding: 2rem;
+  background: white;
+
+  &__Backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #0008;
+  }
+
+  &__Close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

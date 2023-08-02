@@ -1,38 +1,11 @@
-.Modal__Backdrop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #0008;
-}
-
-.Modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-  padding: 2rem;
-  background: white;
-}
-
-.Modal__Close {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .Gallery__ModalImage {
   max-width: 100%;
 }
 
-.Image_Details {
+.Gallery__ModalImageDetails {
   font-size: 1.4em;
+}
+
+.ImageCard {
+  margin: 0.5em;
 }
