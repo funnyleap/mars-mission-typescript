@@ -1,5 +1,9 @@
 @use "./styles/variables" as *;
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 #root {

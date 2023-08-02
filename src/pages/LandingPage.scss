@@ -1,0 +1,184 @@
+@use "../styles/variables" as *;
+
+.LandingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__Heading {
+    margin: 3rem auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+  }
+
+  &__HeadingCapsule {
+    border-radius: 80px;
+    border: 2px solid $color-background;
+    padding: 30px 30px 15px;
+    margin: 0 auto;
+    font-size: 50px;
+    display: inline-block;
+    box-shadow: 5px 5px 25px $color-foreground;
+    color: $header-font-color;
+    text-shadow:
+      -2px 0 $color-background,
+      0 2px $color-background,
+      2px 0 $color-background,
+      0 -2px $color-background;
+    text-align: center;
+
+    &--mars {
+      background-color: $mars-header-background;
+      transform: rotate(-10deg);
+      margin-left: -1em;
+      margin-bottom: -0.5em;
+    }
+
+    &--mission {
+      background-color: $mission-header-background;
+      transform: rotate(5deg);
+      margin-left: 0.5em;
+    }
+  }
+
+  &__Dashboard {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    margin-top: 3em;
+
+    a {
+      text-decoration: none;
+    }
+
+    &__Item {
+      display: flex;
+      align-items: center;
+      transition: all 0.5s ease;
+      cursor: pointer;
+
+      &:hover .dashboard-navigation-button {
+        background-color: $button-dashboard-hover;
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+
+      &--icon {
+        padding: 1em;
+        border: 1px solid $color-background;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        margin-right: -2em;
+        z-index: 1;
+      }
+
+      &--rovers {
+        background-color: $button-dashboard-blue;
+      }
+
+      &--birthdayCard {
+        background-color: $button-dashboard-green;
+      }
+
+      &--quiz {
+        background-color: $button-dashboard-pink;
+      }
+
+      &--weather {
+        background-color: $button-dashboard-purple;
+      }
+
+      &--tile {
+        display: flex;
+        height: 80px;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        gap: 1em;
+        text-align: center;
+        padding-left: 3em;
+        padding-right: 1em;
+        font-size: 1em;
+        font-weight: 600;
+        font-family: $dashboard-font;
+        background-color: $button-dashboard-background;
+        border-radius: 5px;
+        border: 2px solid $color-background;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .LandingPage {
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    &__HeadingCapsule {
+      font-size: 70px;
+      box-shadow: 5px 5px 25px $color-background;
+      padding: 30px 30px 15px;
+    }
+
+    &__Dashboard {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4.5em;
+
+      &__Item {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .LandingPage {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+    &__Heading {
+      justify-self: center;
+      margin: 0;
+    }
+
+    &__HeadingCapsule {
+      font-size: 90px;
+      margin-left: 1em;
+      padding: 40px 40px 20px;
+      border-radius: 95px;
+      border-width: 6px;
+
+      &--mars {
+        margin-bottom: -0.2em;
+        margin-left: -0.2em;
+      }
+    }
+
+    &__Dashboard {
+      flex-direction: column;
+      width: 50vw;
+
+      &__Item {
+        transform: scale(1.5);
+      }
+    }
+  }
+}
