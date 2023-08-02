@@ -44,4 +44,55 @@ body {
       background-color: red;
     }
   }
+
+  &__solar-system {
+    background-color: black;
+    height: max(16vw, 16vh);
+    width: 80vw;
+    margin: 0 auto;
+    position: relative;
+
+    &--hide {
+      display: none;
+    }
+  }
+}
+
+.mars {
+  /* background-color: red; */
+  background: url("https://paul7dxb.github.io/hosted-assets/mars/mars-cartoon.png"),
+    red;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8vw;
+  width: 8vw;
+  position: absolute;
+  left: 0;
+  top: 4vw;
+}
+.ufo {
+  background: url("https://paul7dxb.github.io/hosted-assets/mars/ufo-cartoon.png");
+  /* border-radius: 50%; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 8vw;
+  width: 8vw;
+  position: absolute;
+  left: 0;
+  top: 4vw;
+}
+.earth {
+  /* background-color: green; */
+  background: url("https://paul7dxb.github.io/hosted-assets/mars/earth-cartoon.png"),
+    blue;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8vw;
+  width: 8vw;
+  position: absolute;
+  right: 0;
+  top: 4vw;
 }

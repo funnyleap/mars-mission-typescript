@@ -6,61 +6,132 @@ import QuizStart from "../components/quiz/QuizStart";
 import QuizQuestion from "../components/quiz/QuizQuestion";
 import { Question, getRandomQuestions } from "../data/quizData";
 
+import { useAnimate } from "framer-motion";
+
+const gameSettings = {
+  numOfQuestions: 10,
+  maxTime: 30,
+  maxVw: 72,
+  startVw: 10,
+  wrongTime: 3,
+  correctTime: 5,
+};
+
 function QuizPage() {
   const [seconds, setSeconds] = useState(30);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [firstIncorrect, setFirstIncorrect] = useState(true);
   const [gameState, setGameState] = useState("gameMenu");
+  const [showAnimation, setShowAnimation] = useState(false);
 
   const [questions, setQuestions] = useState<Question[]>();
 
+  // const controls = useAnimationControls();
+  const [scope, animate] = useAnimate();
+
+  const startAnimation = async () => {
+    await animate(scope.current, { x: 0 }, { ease: "backOut", duration: 0 });
+    animate(
+      scope.current,
+      { x: `${gameSettings.maxVw}vw` },
+      { ease: "linear", duration: gameSettings.maxTime },
+    );
+  };
+
+  const getNewX = (timeLeft: number) => {
+    const newProgress =
+      (gameSettings.maxTime - timeLeft) / gameSettings.maxTime;
+    const newX = newProgress * gameSettings.maxVw;
+    return `${newX}vw`;
+  };
+
+  const jumpBackAnimation = async () => {
+    const newSeconds = Math.min(
+      seconds + gameSettings.correctTime,
+      gameSettings.maxTime,
+    );
+    const newX = getNewX(newSeconds);
+    await animate(
+      scope.current,
+      { x: newX, rotateZ: [0, -150, 0] },
+      { ease: "backOut", duration: 0.5 },
+    );
+    animate(
+      scope.current,
+      { x: `${gameSettings.maxVw}vw` },
+      { ease: "linear", duration: newSeconds },
+    );
+  };
+
+  const jumpFwdAnimation = async () => {
+    let newSeconds = Math.max(seconds - gameSettings.wrongTime, 0);
+    const newX = getNewX(newSeconds);
+    if (newSeconds <= 0) {
+      newSeconds = 0.1;
+    }
+    await animate(
+      scope.current,
+      { x: newX, rotateZ: [0, 20, 0] },
+      { ease: "backOut", duration: 0.15 },
+    );
+    animate(
+      scope.current,
+      { x: `${gameSettings.maxVw}vw` },
+      { ease: "linear", duration: newSeconds },
+    );
+  };
+
   useEffect(() => {
-    setQuestions(getRandomQuestions(10));
+    setQuestions(getRandomQuestions(gameSettings.numOfQuestions));
   }, []);
 
   const handleAnswerOptionClick = (isCorrect: boolean) => {
     if (isCorrect) {
       setFirstIncorrect(true);
+      jumpBackAnimation();
       setTimeout(() => {
         console.log("correct");
         setSeconds((prevSeconds) => Math.min(prevSeconds + 5, 30));
-        // setButtonClicked(false);
         setScore(score + 1);
-        //Change the button to correct
-        //Increase timer
-        // Move onto next question
         const nextQuestion = currentQuestion + 1;
         if (questions && nextQuestion < questions.length) {
           setCurrentQuestion(nextQuestion);
         } else {
           setSeconds(0);
           setGameState("gameWon");
+          setShowAnimation(false);
         }
       }, 500);
     } else {
-      setSeconds((prevSeconds) => Math.max(prevSeconds - 5, 0));
+      setSeconds((prevSeconds) =>
+        Math.max(prevSeconds - gameSettings.wrongTime, 0),
+      );
+      jumpFwdAnimation();
       if (firstIncorrect) {
         setScore(score - 1);
         setFirstIncorrect(false);
       }
-      // Change button to incorrect
-      // Reduce timer
     }
   };
 
   function startGame() {
     setGameState("gameRunning");
+    setShowAnimation(true);
     startTimer();
+    startAnimation();
   }
 
   function resetGame() {
+    setQuestions(getRandomQuestions(gameSettings.numOfQuestions));
     setSeconds(30);
     setScore(0);
     setCurrentQuestion(0);
     setFirstIncorrect(false);
     startTimer();
+    startAnimation();
     setGameState("gameRunning");
+    setShowAnimation(true);
   }
 
   function startTimer() {
@@ -110,7 +181,24 @@ function QuizPage() {
       );
   }
 
-  return content;
+  return (
+    <div className="QuizPage">
+      <div
+        className={
+          showAnimation
+            ? "QuizPage__solar-system  "
+            : "QuizPage__solar-system QuizPage__solar-system--hide"
+        }
+      >
+        <div className="mars"></div>
+
+        <div className="earth"></div>
+
+        <div className="ufo" ref={scope}></div>
+      </div>
+      {content}
+    </div>
+  );
 }
 
 export default QuizPage;
