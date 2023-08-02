@@ -18,7 +18,27 @@
 }
 
 .Gallery {
+  display: flex;
   position: relative;
   left: 2%;
   margin-top: 25em;
+}
+
+// Following code is in experiment stage
+@media only screen and (max-width: 640px) {
+  .Gallery {
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+    position: relative;
+    left: 2%;
+    margin-top: 25em;
+  }
+
+  .ImageCard {
+    display: flex;
+    // flex-direction: column;
+    width: 25vw;
+    height: 25vw;
+  }
 }
