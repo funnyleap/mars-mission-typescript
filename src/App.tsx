@@ -6,16 +6,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-
-        <Route
-          path="/hello"
-          element={
-            <PageWithNavBar>
-              <h1>Hello</h1>{" "}
-            </PageWithNavBar>
-          }
-        />
+        <Route index element={<LandingPage />} />
+        <Route element={<PageWithNavBar />}>
+          <Route path="/hello" element={<h1>Hello</h1>} />
+        </Route>
       </Routes>
     </Router>
   );

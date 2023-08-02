@@ -1,16 +1,14 @@
-import { ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import "./PageWithNavBar.scss";
 
-interface PageWithNavBarProps {
-  children?: ReactNode;
-}
-
-const PageWithNavBar = ({ children }: PageWithNavBarProps) => {
+const PageWithNavBar = () => {
   return (
     <>
       <NavBar />
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 };
