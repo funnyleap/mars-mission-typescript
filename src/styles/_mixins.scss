@@ -1,11 +1,13 @@
-@use "./variables" as *;
+@mixin device($breakpoint) {
+  @if $breakpoint == tablet {
+    @media screen and (min-width: 768px) {
+      @content;
+    }
+  }
 
-@mixin noListDecoration {
-  text-decoration: none;
-}
-
-@mixin navbarItem($fontsize, $fontweight) {
-  font-size: $fontsize;
-  font-weight: $fontweight;
-  color: $color-primary-darker;
+  @if $breakpoint == desktop {
+    @media screen and (min-width: 992px) {
+      @content;
+    }
+  }
 }

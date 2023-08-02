@@ -8,7 +8,7 @@ const App = () => {
       <Routes>
         <Route index element={<LandingPage />} />
         <Route element={<PageWithNavBar />}>
-          <Route path="/hello" element={<h1>Hello</h1>} />
+          <Route path="/placeholder" element={<h1>Placeholder</h1>} />
         </Route>
       </Routes>
     </Router>

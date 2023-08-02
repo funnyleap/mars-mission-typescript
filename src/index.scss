@@ -1,4 +1,5 @@
 @use "./styles/variables" as *;
+@use "./styles/mixins" as *;
 
 * {
   box-sizing: border-box;
@@ -11,20 +12,39 @@ body,
   font-family: $dashboard-font;
 }
 
+html {
+  background-color: black;
+}
+
 body {
+  margin: 0;
+  padding-top: 6.5rem;
   background-image: url(./assets/Mars_Project_-_Mobile.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
 }
 
-@media (min-width: 768px) {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+@include device(tablet) {
   body {
+    padding-top: 7.75rem;
     background-image: url(./assets/Mars_Project_-_Desktop.png);
   }
 }
 
-* {
-  padding: 0;
-  margin: 0;
+@include device(desktop) {
+  body {
+    padding-top: 9rem;
+  }
 }

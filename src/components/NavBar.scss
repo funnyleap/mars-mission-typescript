@@ -1,130 +1,118 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
 
-.navbar {
-  top: 0;
-  position: fixed;
+.NavBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 85vw;
-  padding: 10px 10px;
-  margin: 20px auto;
-  border-radius: 50px;
+  position: fixed;
+  top: 0;
   left: 50%;
   transform: translate(-50%, 0);
+  width: 85vw;
+  margin: 1.25rem auto;
+  padding: 0.625rem;
+  border-radius: 4rem;
+  box-shadow: 0 -1.25rem 3rem 0.625rem $color-background;
   background-color: $color-navbar;
-  box-shadow: 0 -20px 50px 10px $color-background;
   transition: background-color 0.5s;
 
   &:hover {
     background-color: $color-navbar-hover;
   }
 
-  &-logo {
-    height: 40px;
-    border-radius: 100%;
-    transition: all 0.5s ease;
+  &__Logo {
+    height: 2.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    transition: all 0.5s;
 
     &:hover {
       transform: rotate(-5deg) scale(1.1);
-
-      box-shadow: 5px 5px 25px $color-primary-darkest;
+      box-shadow: 0 0 1.5rem $color-primary-darkest;
     }
   }
 
-  &-toggle {
-    margin-right: 10px;
-    font-size: 30px;
-    background: none;
+  &__Toggle {
+    margin-right: 0.75rem;
     border: none;
-    cursor: pointer;
-    transition: all 0.5s ease;
+    background: none;
+    font-size: 2rem;
     color: $color-primary-darker;
+    transition: all 0.5s;
+    cursor: pointer;
   }
 
-  &-large-menu {
+  &__Menu {
     display: none;
-    flex-direction: row;
-    gap: 25px;
-    font-size: 1.2em;
+    margin: 0;
+    padding-left: 0;
+    font-size: 1.5rem;
     list-style: none;
-    margin-right: 20px;
-    li a {
-      @include navbarItem(1.2em, 400);
-      @include noListDecoration;
 
-      &:hover {
-        text-shadow: 5px 5px 25px $color-primary-darkest;
+    &--large {
+      flex-direction: row;
+      gap: 1.5rem;
+      margin-right: 1.25rem;
+    }
+
+    &--mobile {
+      position: absolute;
+      top: 4.5rem;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0.625rem 2rem $color-background;
+      background-color: $color-navbar-hover;
+
+      &--expanded {
+        display: block;
       }
     }
+  }
 
-    &__link {
-      font-weight: 800;
-      font-size: 1.3em;
+  &__MenuLink {
+    display: inline-block;
+    color: $color-primary-darker;
+    text-decoration: none;
+    transition: all 0.25s;
+
+    &:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 1.5rem $color-primary;
+    }
+
+    &--active {
+      font-weight: bold;
     }
   }
 }
 
-.mobile-menu {
-  display: none;
-  position: absolute;
-  top: 70px;
-  background-color: $color-navbar-hover;
-  border-radius: 25px;
-  left: 0;
-  width: 85vw;
-  padding: 10px 10px;
-  box-shadow: 0 20px 50px 10px $color-background;
-
-  &--active {
-    display: block;
-  }
-
-  &-links {
-    list-style: none;
-    margin: 10px;
-
-    li a {
-      @include navbarItem(1.5em, 400);
-      @include noListDecoration;
+@include device(tablet) {
+  .NavBar {
+    &__Logo {
+      height: 4rem;
     }
 
-    &__link {
-      font-weight: 800;
-      font-size: 1.3em;
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .navbar {
-    &-logo {
-      height: 60px;
-    }
-
-    &-toggle {
+    &__Toggle {
       display: none;
     }
 
-    &-large-menu {
+    &__Menu--large {
       display: flex;
     }
-  }
 
-  .mobile-menu {
-    display: none;
+    &__Menu--mobile {
+      display: none;
+    }
   }
 }
 
-@media (min-width: 992px) {
-  .navbar {
-    &-logo {
-      height: 80px;
-    }
-
-    &-toggle {
-      display: none;
+@include device(desktop) {
+  .NavBar {
+    &__Logo {
+      height: 5rem;
     }
   }
 }
