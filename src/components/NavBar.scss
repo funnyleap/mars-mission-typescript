@@ -1,0 +1,118 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 85vw;
+  margin: 1.25rem auto;
+  padding: 0.625rem;
+  border-radius: 4rem;
+  box-shadow: 0 -1.25rem 3rem 0.625rem $color-background;
+  background-color: $color-navbar;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: $color-navbar-hover;
+  }
+
+  &__Logo {
+    height: 2.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: rotate(-5deg) scale(1.1);
+      box-shadow: 0 0 1.5rem $color-primary-darkest;
+    }
+  }
+
+  &__Toggle {
+    margin-right: 0.75rem;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    color: $color-primary-darker;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+  &__Menu {
+    display: none;
+    margin: 0;
+    padding-left: 0;
+    font-size: 1.5rem;
+    list-style: none;
+
+    &--large {
+      flex-direction: row;
+      gap: 1.5rem;
+      margin-right: 1.25rem;
+    }
+
+    &--mobile {
+      position: absolute;
+      top: 4.5rem;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0.625rem 2rem $color-background;
+      background-color: $color-navbar-hover;
+
+      &--expanded {
+        display: block;
+      }
+    }
+  }
+
+  &__MenuLink {
+    display: inline-block;
+    color: $color-primary-darker;
+    text-decoration: none;
+    transition: all 0.25s;
+
+    &:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 1.5rem $color-primary;
+    }
+
+    &--active {
+      font-weight: bold;
+    }
+  }
+}
+
+@include device(tablet) {
+  .NavBar {
+    &__Logo {
+      height: 4rem;
+    }
+
+    &__Toggle {
+      display: none;
+    }
+
+    &__Menu--large {
+      display: flex;
+    }
+
+    &__Menu--mobile {
+      display: none;
+    }
+  }
+}
+
+@include device(desktop) {
+  .NavBar {
+    &__Logo {
+      height: 5rem;
+    }
+  }
+}
