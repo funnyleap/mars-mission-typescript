@@ -41,6 +41,7 @@ function Question({
       <div className="QuizPage__answers">
         {answers.map((answerOption) => (
           <Answer
+            key={answerOption.answerText}
             isCorrect={answerOption.isCorrect}
             answerText={answerOption.answerText}
             handleAnswerOptionClick={handleAnswerOptionClick}
