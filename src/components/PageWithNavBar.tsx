@@ -10,7 +10,7 @@ const PageWithNavBar = ({ children }: PageWithNavBarProps) => {
   return (
     <>
       <NavBar />
-      <div>{children}</div>
+      <main>{children}</main>
     </>
   );
 };
