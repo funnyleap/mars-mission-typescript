@@ -1,0 +1,122 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as *;
+
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85vw;
+  padding: 10px 10px;
+  margin: 20px auto;
+  border-radius: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: $color-navbar;
+
+  &-logo {
+    height: 40px;
+    border-radius: 100%;
+    transition: all 0.5s ease;
+
+    &:hover {
+      transform: rotate(-5deg) scale(1.1);
+
+      box-shadow: 5px 5px 25px $color-primary-darkest;
+    }
+  }
+
+  &-toggle {
+    margin-right: 10px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    color: $color-primary-darker;
+  }
+
+  &-large-menu {
+    display: none;
+    flex-direction: row;
+    gap: 25px;
+    font-size: 1.2em;
+    list-style: none;
+    margin-right: 20px;
+    li a {
+      @include navbarItem(1.2em, 400);
+      @include noListDecoration;
+
+      &:hover {
+        text-shadow: 5px 5px 25px $color-primary-darkest;
+      }
+    }
+
+    &__link {
+      font-weight: 800;
+      font-size: 1.3em;
+    }
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 70px;
+  background-color: $color-navbar;
+  border-radius: 25px;
+  left: 0;
+  width: 85vw;
+  padding: 10px 10px;
+
+  &--active {
+    display: block;
+  }
+
+  &-links {
+    list-style: none;
+    margin: 10px;
+
+    li a {
+      @include navbarItem(1.5em, 400);
+      @include noListDecoration;
+    }
+
+    &__link {
+      font-weight: 800;
+      font-size: 1.3em;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    &-logo {
+      height: 60px;
+    }
+
+    &-toggle {
+      display: none;
+    }
+
+    &-large-menu {
+      display: flex;
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar {
+    &-logo {
+      height: 80px;
+    }
+
+    &-toggle {
+      display: none;
+    }
+  }
+}
