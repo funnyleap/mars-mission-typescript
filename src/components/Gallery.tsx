@@ -40,7 +40,7 @@ const Gallery = ({ galleryPhotos }: GalleryProps) => {
               alt="Enlarged Image"
               width={800}
             />
-            <p>
+            <p className="Image_Details">
               Taken by the {selectedPhotoDetails.camera.full_name}, on{" "}
               {selectedPhotoDetails.rover.name} on Martian sol{" "}
               {selectedPhotoDetails.sol} (Earth Date{" "}
