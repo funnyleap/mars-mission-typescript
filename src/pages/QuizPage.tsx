@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./QuizPage.scss";
-import Answer from "../components/quiz/Answer";
 import GameOver from "../components/quiz/GameOver";
 import QuizPassed from "../components/quiz/QuizPassed";
+import QuizStart from "../components/quiz/QuizStart";
+import Question from "../components/quiz/Question";
 
 function QuizPage() {
   const questions = [
@@ -18,10 +19,22 @@ function QuizPage() {
     {
       questionText: "Who is CEO of Tesla?",
       answerOptions: [
-        { answerText: "Jeff Bezos", isCorrect: false, isClicked: false },
+        {
+          answerText: "Jeff Bezos",
+          isCorrect: false,
+          isClicked: false,
+        },
         { answerText: "Elon Musk", isCorrect: true, isClicked: false },
-        { answerText: "Bill Gates", isCorrect: false, isClicked: false },
-        { answerText: "Tony Stark", isCorrect: false, isClicked: false },
+        {
+          answerText: "Bill Gates",
+          isCorrect: false,
+          isClicked: false,
+        },
+        {
+          answerText: "Tony Stark",
+          isCorrect: false,
+          isClicked: false,
+        },
       ],
     },
     {
@@ -46,18 +59,13 @@ function QuizPage() {
 
   const [seconds, setSeconds] = useState(30);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [firstIncorrect, setFirstIncorrect] = useState(true);
-  const [gameWon, setGameWon] = useState(false);
-
-  useEffect(() => {
-    startTimer()
-  }, []);
+  const [gameState, setGameState] = useState("gameMenu");
 
   const handleAnswerOptionClick = (isCorrect: boolean) => {
     if (isCorrect) {
-      setFirstIncorrect(true)
+      setFirstIncorrect(true);
       setTimeout(() => {
         console.log("correct");
         setSeconds((prevSeconds) => Math.min(prevSeconds + 5, 30));
@@ -70,9 +78,8 @@ function QuizPage() {
         if (nextQuestion < questions.length) {
           setCurrentQuestion(nextQuestion);
         } else {
-          setGameWon(true);
-          setGameOver(true);
           setSeconds(0);
+          setGameState("gameWon");
         }
       }, 500);
     } else {
@@ -80,28 +87,38 @@ function QuizPage() {
       if (firstIncorrect) {
         setScore(score - 1);
         setFirstIncorrect(false);
-      } 
+      }
       // Change button to incorrect
       // Reduce timer
     }
   };
 
+  function startGame() {
+    setGameState("gameRunning");
+    startTimer();
+  }
+
   function resetGame() {
     setSeconds(30);
     setScore(0);
     setCurrentQuestion(0);
-    setGameOver(false);
     setFirstIncorrect(false);
     startTimer();
-    setGameWon(false);
+    setGameState("gameRunning");
   }
 
   function startTimer() {
     const interval = setInterval(() => {
       setSeconds((prevSeconds) => {
         if (prevSeconds <= 1) {
-          setGameOver(true)
           clearInterval(interval);
+          setGameState((prevState) => {
+            if (prevState === "gameWon") {
+              return "gameWon";
+            } else {
+              return "gameOver";
+            }
+          });
         }
         return Math.max(prevSeconds - 1, 0);
       });
@@ -110,41 +127,32 @@ function QuizPage() {
     return () => clearInterval(interval);
   }
 
-  return (
-    <div className="QuizPage">
-      {gameOver ? ( gameWon ?
-        <QuizPassed resetGame={resetGame} />
-        :
-        <GameOver resetGame={resetGame} />
-      ) : (
-        <>
-          <div className="QuizPage__question-section">
-            <div className="QuizPage__question-count">
-              <p>
-                Question {currentQuestion + 1}/{questions.length}
-              </p>
-            </div>
-            <div className="QuizPage__question-text">
-              <p>{questions[currentQuestion].questionText}</p>
-            </div>
-          </div>
-          <div>
-            <p>Score: {score}</p>
-            <p>Timer: {seconds}</p>
-          </div>
-          <div className="QuizPage__answers">
-            {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <Answer
-                isCorrect={answerOption.isCorrect}
-                answerText={answerOption.answerText}
-                handleAnswerOptionClick={handleAnswerOptionClick}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
+  let content: JSX.Element;
+
+  switch (gameState) {
+    case "gameMenu":
+      content = <QuizStart startGame={startGame} />;
+      break;
+    case "gameOver":
+      content = <GameOver resetGame={resetGame} />;
+      break;
+    case "gameWon":
+      content = <QuizPassed resetGame={resetGame} />;
+      break;
+    default:
+      content = (
+        <Question
+          questionNumber={currentQuestion + 1}
+          totalQuestions={questions.length}
+          questionText={questions[currentQuestion].questionText}
+          timeLeft={seconds}
+          answers={questions[currentQuestion].answerOptions}
+          handleAnswerOptionClick={handleAnswerOptionClick}
+        />
+      );
+  }
+
+  return content;
 }
 
 export default QuizPage;
