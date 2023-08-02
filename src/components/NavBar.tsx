@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./navbarcomponent.scss";
+import "./NavBar.scss";
 
-export default function NavBarComponent() {
+export default function NavBar() {
   const pages = [
     {
       name: "Rovers",
@@ -21,12 +21,8 @@ export default function NavBarComponent() {
       path: "/birthday-card",
     },
   ];
-  const [mobileMenu, setMobileMenu] = useState(false);
 
-  const handleMobileMenu = (e) => {
-    e.preventDefault();
-    setMobileMenu(!mobileMenu);
-  };
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
     <nav className="navbar">
@@ -42,7 +38,10 @@ export default function NavBarComponent() {
         ))}
       </ul>
 
-      <button className="navbar-toggle" onClick={handleMobileMenu}>
+      <button
+        className="navbar-toggle"
+        onClick={() => setMobileMenu(!mobileMenu)}
+      >
         {mobileMenu ? (
           <i className="fa-solid fa-x"></i>
         ) : (

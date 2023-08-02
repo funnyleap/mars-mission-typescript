@@ -1,11 +1,11 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/LandingPage";
-import NavBarComponent from "./components/NavBarComponent/NavBarComponent";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
     <Router>
-      <NavBarComponent />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
