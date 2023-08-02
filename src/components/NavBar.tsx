@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import logo from "/logo.png";
 import "./NavBar.scss";
 
 const pageLinks = [
@@ -27,7 +28,7 @@ const NavBar = () => {
   return (
     <nav className="NavBar">
       <NavLink to="/">
-        <img className="NavBar__Logo" src="/logo.png" />
+        <img className="NavBar__Logo" src={logo} />
       </NavLink>
 
       <ul className="NavBar__Menu NavBar__Menu--large">

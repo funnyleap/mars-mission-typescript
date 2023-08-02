@@ -18,8 +18,8 @@ html {
 
 body {
   margin: 0;
-  padding-top: 6.5rem;
-  background-image: url(./assets/Mars_Project_-_Mobile.png);
+  padding: 6.5rem 0;
+  background-image: url(./assets/background-mobile.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -39,7 +39,7 @@ p {
 @include device(tablet) {
   body {
     padding-top: 7.75rem;
-    background-image: url(./assets/Mars_Project_-_Desktop.png);
+    background-image: url(./assets/background-desktop.png);
   }
 }
 
