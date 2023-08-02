@@ -1,5 +1,9 @@
+@use "../styles/_variables.scss" as *;
+
 .Gallery__ModalImage {
   max-width: 100%;
+  border-color: $color-primary-darkest;
+  border-style: solid;
 }
 
 .Gallery__ModalImageDetails {
@@ -8,4 +12,13 @@
 
 .ImageCard {
   margin: 0.5em;
+  border-color: $color-primary-darkest;
+  border-style: solid;
+  font: $dashboard-font;
+}
+
+.Gallery {
+  position: relative;
+  left: 2%;
+  margin-top: 25em;
 }
