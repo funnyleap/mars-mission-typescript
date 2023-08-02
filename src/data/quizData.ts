@@ -10,7 +10,7 @@ interface Question {
 
 const questions: Question[] = [
   {
-    questionText: "Mars is also referred to as the...?",
+    questionText: "Mars is also referred to as the...",
     options: [
       { optionText: "Chocolate Planet", isCorrect: false },
       { optionText: "Orange Planet", isCorrect: false },
@@ -19,7 +19,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "How long is a day on Mars in hours?",
+    questionText: "How long is a sol (day) on Mars in Earth hours?",
     options: [
       { optionText: "24.6", isCorrect: true },
       { optionText: "35.6", isCorrect: false },
@@ -28,7 +28,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "Mars is the ___ planet from the Sun?",
+    questionText: "Mars is the ___ planet from the Sun",
     options: [
       { optionText: "Sixth", isCorrect: false },
       { optionText: "First", isCorrect: false },
@@ -55,7 +55,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "How long is a Mars year in Mars sols/days?",
+    questionText: "How long is a Mars year in Mars sols (days)?",
     options: [
       { optionText: "1,000,000", isCorrect: false },
       { optionText: "499.6", isCorrect: false },
@@ -64,7 +64,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "One of the Mars NASA rovers is called?",
+    questionText: "One of the Mars NASA rovers is called...",
     options: [
       { optionText: "Marty", isCorrect: false },
       { optionText: "InSight", isCorrect: false },
@@ -73,7 +73,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "One of the Mars NASA rovers is called?",
+    questionText: "One of the Mars NASA rovers is called...",
     options: [
       { optionText: "Perseverance", isCorrect: true },
       { optionText: "InSight", isCorrect: false },
@@ -82,7 +82,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "The Mars NASA helicopter is called?",
+    questionText: "The Mars NASA helicopter is called...",
     options: [
       { optionText: "Perseverance", isCorrect: false },
       { optionText: "InSight", isCorrect: false },
@@ -100,7 +100,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "What is the radius of planet Mars?",
+    questionText: "What is the radius of Mars?",
     options: [
       { optionText: "3,390km", isCorrect: true },
       { optionText: "3,990km", isCorrect: false },
@@ -119,7 +119,7 @@ const questions: Question[] = [
   },
   {
     questionText:
-      "What percentage of the Mars Atmosphere is carbon dioxide (CO2)?",
+      "What percentage of the Mars atmosphere is carbon dioxide (CO₂)?",
     options: [
       { optionText: "0.4%", isCorrect: false },
       { optionText: "45%", isCorrect: false },
@@ -173,7 +173,7 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "Mars is named after the God of?",
+    questionText: "Mars is named after the God of...",
     options: [
       { optionText: "Love", isCorrect: false },
       { optionText: "Wisdom", isCorrect: false },
@@ -182,19 +182,19 @@ const questions: Question[] = [
     ],
   },
   {
-    questionText: "Why is Mars rusty coloured?",
+    questionText: "Why is Mars red?",
     options: [
       { optionText: "It's covered in tomato ketchup", isCorrect: false },
       { optionText: "There are lots of active volcanoes", isCorrect: false },
       {
-        optionText: "Iron minerals in the Martian soil oxidize",
+        optionText: "There is iron oxide in the Martian soil",
         isCorrect: true,
       },
       { optionText: "Its atmospheric gases glow red", isCorrect: false },
     ],
   },
   {
-    questionText: "Mars is named after which Greek god?",
+    questionText: "The Roman god Mars is also known as ___ in Greek mythology",
     options: [
       { optionText: "Ares", isCorrect: true },
       { optionText: "Zeus", isCorrect: false },
@@ -222,7 +222,7 @@ const questions: Question[] = [
   },
   {
     questionText:
-      "One astronomical unit (AU), is the distance from the Sun to Earth. How many AU units is Mars from the Sun?",
+      "One astronomical unit (AU) is the distance from the Sun to Earth. How many AU is Mars from the Sun?",
     options: [
       { optionText: "0.5", isCorrect: false },
       { optionText: "1", isCorrect: false },
@@ -232,7 +232,7 @@ const questions: Question[] = [
   },
   {
     questionText:
-      "What is Mars' axis of rotation / tilt with respect to the plane of its orbit around the Sun?",
+      "What is Mars' axis of rotation/tilt with respect to the plane of its orbit around the Sun?",
     options: [
       { optionText: "5 degrees", isCorrect: false },
       { optionText: "2 degrees", isCorrect: false },
@@ -242,7 +242,7 @@ const questions: Question[] = [
   },
   {
     questionText:
-      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the northern hemisphere is the longest season at 194 sols?",
+      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the northern hemisphere is the longest season at 194 Martian sols (days)?",
     options: [
       { optionText: "Winter", isCorrect: false },
       { optionText: "Spring", isCorrect: true },
@@ -252,7 +252,7 @@ const questions: Question[] = [
   },
   {
     questionText:
-      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the southern hemisphere is the longest season at 194 sols?",
+      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the southern hemisphere is the longest season at 194 Martian sols (days)?",
     options: [
       { optionText: "Winter", isCorrect: false },
       { optionText: "Spring", isCorrect: false },
@@ -262,7 +262,7 @@ const questions: Question[] = [
   },
   {
     questionText:
-      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the southern hemisphere is the shortest season at 142 sols?",
+      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the southern hemisphere is the shortest season at 142 Martian sols (days)?",
     options: [
       { optionText: "Winter", isCorrect: false },
       { optionText: "Spring", isCorrect: true },
@@ -272,7 +272,7 @@ const questions: Question[] = [
   },
   {
     questionText:
-      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the northern hemisphere is the shortest season at 142 sols?",
+      "Mars has an elliptical (egg-shaped) orbit around the Sun. Which season in the northern hemisphere is the shortest season at 142 Martian sols (days)?",
     options: [
       { optionText: "Winter", isCorrect: false },
       { optionText: "Spring", isCorrect: false },
@@ -282,13 +282,7 @@ const questions: Question[] = [
   },
 ];
 
-export const getRandomQuestions = (): Question[] => {
-  return questions
-    .map((q) => ({ q, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ q }) => q);
-};
-export const getNRandomQuestions = (n: number): Question[] => {
+export const getRandomQuestions = (n: number): Question[] => {
   return questions
     .map((q) => ({ q, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
