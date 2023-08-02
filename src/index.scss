@@ -12,13 +12,13 @@ body,
 }
 
 body {
-  background-image: url(./assets/Mars_Project_-_Mobile.png);
+  // background-image: url(./assets/Mars_Project_-_Mobile.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 @media (min-width: 768px) {
   body {
-    background-image: url(./assets/Mars_Project_-_Desktop.png);
+    // background-image: url(./assets/Mars_Project_-_Desktop.png);
   }
 }

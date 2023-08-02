@@ -1,67 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./QuizPage.scss";
 import GameOver from "../components/quiz/GameOver";
 import QuizPassed from "../components/quiz/QuizPassed";
 import QuizStart from "../components/quiz/QuizStart";
-import Question from "../components/quiz/Question";
+import QuizQuestion from "../components/quiz/QuizQuestion";
+import { Question, getRandomQuestions } from "../data/quizData";
 
 function QuizPage() {
-  const questions = [
-    {
-      questionText: "What is the capital of France?",
-      answerOptions: [
-        { answerText: "New York", isCorrect: false, isClicked: false },
-        { answerText: "London", isCorrect: false, isClicked: false },
-        { answerText: "Paris", isCorrect: true, isClicked: false },
-        { answerText: "Dublin", isCorrect: false, isClicked: false },
-      ],
-    },
-    {
-      questionText: "Who is CEO of Tesla?",
-      answerOptions: [
-        {
-          answerText: "Jeff Bezos",
-          isCorrect: false,
-          isClicked: false,
-        },
-        { answerText: "Elon Musk", isCorrect: true, isClicked: false },
-        {
-          answerText: "Bill Gates",
-          isCorrect: false,
-          isClicked: false,
-        },
-        {
-          answerText: "Tony Stark",
-          isCorrect: false,
-          isClicked: false,
-        },
-      ],
-    },
-    {
-      questionText: "The iPhone was created by which company?",
-      answerOptions: [
-        { answerText: "Apple", isCorrect: true, isClicked: false },
-        { answerText: "Intel", isCorrect: false, isClicked: false },
-        { answerText: "Amazon", isCorrect: false, isClicked: false },
-        { answerText: "Microsoft", isCorrect: false, isClicked: false },
-      ],
-    },
-    {
-      questionText: "How many Harry Potter books are there?",
-      answerOptions: [
-        { answerText: "1", isCorrect: false, isClicked: false },
-        { answerText: "4", isCorrect: false, isClicked: false },
-        { answerText: "6", isCorrect: false, isClicked: false },
-        { answerText: "7", isCorrect: true, isClicked: false },
-      ],
-    },
-  ];
-
   const [seconds, setSeconds] = useState(30);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [firstIncorrect, setFirstIncorrect] = useState(true);
   const [gameState, setGameState] = useState("gameMenu");
+
+  const [questions, setQuestions] = useState<Question[]>();
+
+  useEffect(() => {
+    setQuestions(getRandomQuestions(10));
+  }, []);
 
   const handleAnswerOptionClick = (isCorrect: boolean) => {
     if (isCorrect) {
@@ -75,7 +31,7 @@ function QuizPage() {
         //Increase timer
         // Move onto next question
         const nextQuestion = currentQuestion + 1;
-        if (nextQuestion < questions.length) {
+        if (questions && nextQuestion < questions.length) {
           setCurrentQuestion(nextQuestion);
         } else {
           setSeconds(0);
@@ -140,15 +96,17 @@ function QuizPage() {
       content = <QuizPassed resetGame={resetGame} />;
       break;
     default:
-      content = (
-        <Question
+      content = questions ? (
+        <QuizQuestion
           questionNumber={currentQuestion + 1}
           totalQuestions={questions.length}
           questionText={questions[currentQuestion].questionText}
           timeLeft={seconds}
-          answers={questions[currentQuestion].answerOptions}
+          answers={questions[currentQuestion].options}
           handleAnswerOptionClick={handleAnswerOptionClick}
         />
+      ) : (
+        <p>Loading...</p>
       );
   }
 

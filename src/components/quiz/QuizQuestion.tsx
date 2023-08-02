@@ -1,3 +1,4 @@
+import { Option } from "../../data/quizData";
 import Answer from "./Answer";
 
 interface QuestionProps {
@@ -5,17 +6,11 @@ interface QuestionProps {
   totalQuestions: number;
   questionText: string;
   timeLeft: number;
-  answers: AnswerOptions[];
+  answers: Option[];
   handleAnswerOptionClick(isCorrect: boolean): void;
 }
 
-interface AnswerOptions {
-  answerText: string;
-  isCorrect: boolean;
-  isClicked: boolean;
-}
-
-function Question({
+function QuizQuestion({
   questionNumber,
   totalQuestions,
   questionText,
@@ -41,9 +36,9 @@ function Question({
       <div className="QuizPage__answers">
         {answers.map((answerOption) => (
           <Answer
-            key={answerOption.answerText}
+            key={answerOption.optionText}
             isCorrect={answerOption.isCorrect}
-            answerText={answerOption.answerText}
+            answerText={answerOption.optionText}
             handleAnswerOptionClick={handleAnswerOptionClick}
           />
         ))}
@@ -52,4 +47,4 @@ function Question({
   );
 }
 
-export default Question;
+export default QuizQuestion;
