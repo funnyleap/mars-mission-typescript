@@ -1,27 +1,17 @@
-import { useState, useEffect } from "react";
-import { RoverManifestDetails, getRoverManifestData } from "../api/nasaApi";
-import Rovers from "../components/Rover";
+import { useState } from "react";
+import Rover from "../components/Rover";
 import Button from "../components/Button";
 
 const RoversPage = () => {
-  const [RoversDetails, setRoversDetails] = useState<RoverManifestDetails>();
-  useEffect(() => {
-    getRoverManifestData().then((data) => {
-      setRoversDetails(data);
-    });
-  }, []);
+  const [currentRoverName] = useState("Curiosity");
 
   return (
     <div>
       <h1>Mars Mission Rovers</h1>
-      <Button onClick={() => setRoversDetails(RoversDetails)}>Curiosity</Button>
+      <Button>Curiosity</Button>
       <Button>Opportunity</Button>
       <Button>Spirit</Button>
-      {RoversDetails ? (
-        <Rovers roverDetails={RoversDetails} />
-      ) : (
-        <p>Loading...</p>
-      )}
+      <Rover rover={currentRoverName} />
     </div>
   );
 };

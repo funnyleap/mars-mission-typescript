@@ -59,9 +59,11 @@ export interface RoverManifestDetails {
   };
 }
 
-export const getRoverManifestData = async (): Promise<RoverManifestDetails> => {
+export const getRoverManifestData = async (
+  roverName: string,
+): Promise<RoverManifestDetails> => {
   const response = await fetch(
-    `https://api.nasa.gov/mars-photos/api/v1/manifests/Curiosity/?api_key=${apiKey}`,
+    `https://api.nasa.gov/mars-photos/api/v1/manifests/${roverName}/?api_key=${apiKey}`,
   );
   return await response.json();
 };

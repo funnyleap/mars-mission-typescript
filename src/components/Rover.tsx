@@ -1,15 +1,30 @@
-import { RoverManifestDetails } from "../api/nasaApi";
+import { useEffect, useState } from "react";
+import { RoverManifestDetails, getRoverManifestData } from "../api/nasaApi";
 
 interface RoverProps {
-  roverDetails: RoverManifestDetails;
+  rover: string;
 }
 
-const Rovers = ({ roverDetails: roversDetails }: RoverProps) => {
+const Rover = ({ rover }: RoverProps) => {
+  const [roverData, setRoverData] = useState<RoverManifestDetails>();
+
+  useEffect(() => {
+    getRoverManifestData(rover).then((data) => setRoverData(data));
+  }, [rover]);
+
   return (
     <div className="Rovers">
-      {roversDetails ? <div></div> : <p>Loading...</p>}
+      {roverData !== undefined ? (
+        <>
+          <h2>{roverData.photo_manifest.name}</h2>
+          <p>Status: {roverData.photo_manifest.status}</p>
+          <p>{roverData.photo_manifest.total_photos} photos</p>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };
 
-export default Rovers;
+export default Rover;
