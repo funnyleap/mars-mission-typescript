@@ -1,23 +1,30 @@
 @use "../styles/variables" as *;
-.fact-header {
-  text-align: left;
+
+.fact-section {
+  padding: 0px 24px;
+  border-radius: 25px;
 }
 
-li {
-  list-style: none;
-}
-
-.card {
+.fact-card {
+  background-color: $mission-header-background;
+  border-radius: 25px;
   display: flex;
-  flex-direction: row;
-  width: 50%;
+  flex-direction: column;
+  margin-bottom: 24px;
+  padding: 25px;
+  border: 5px solid black;
+  box-shadow: 0 0 3px;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 12px;
   align-items: center;
 }
 
 .fact-image {
-  height: 300px;
-}
-
-.fact-text {
-  margin: 3rem;
+  max-width: 200px;
+  max-height: 400px;
+  border-radius: 15px;
 }

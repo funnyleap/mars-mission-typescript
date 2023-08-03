@@ -8,7 +8,7 @@ const FactPage = () => {
       <h1 className="page-header">Fun Facts</h1>
 
       {getFacts().map((section) => (
-        <div className="">
+        <div className="section">
           <h2 className="section-header">{section.sectionTitle}</h2>
           <FactCard section={section} />
         </div>
