@@ -2,11 +2,16 @@ import { ReactNode, MouseEventHandler } from "react";
 
 interface ButtonProps {
   children?: ReactNode;
+  className?: string;
   onClick?: MouseEventHandler;
 }
 
-const Button = ({ children, onClick }: ButtonProps) => {
-  return <button onClick={onClick}>{children}</button>;
+const Button = ({ children, className, onClick }: ButtonProps) => {
+  return (
+    <button className={`Button ${className ?? ""}`} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
