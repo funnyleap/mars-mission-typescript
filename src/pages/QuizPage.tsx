@@ -22,12 +22,13 @@ function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [firstIncorrect, setFirstIncorrect] = useState(true);
-  const [gameState, setGameState] = useState("gameMenu");
+  const [gameState, setGameState] = useState<
+    "gameMenu" | "gameRunning" | "gameOver" | "gameWon"
+  >("gameMenu");
   const [showAnimation, setShowAnimation] = useState(false);
 
   const [questions, setQuestions] = useState<Question[]>();
 
-  // const controls = useAnimationControls();
   const [scope, animate] = useAnimate();
 
   const startAnimation = async () => {
@@ -91,7 +92,6 @@ function QuizPage() {
       setFirstIncorrect(true);
       jumpBackAnimation();
       setTimeout(() => {
-        console.log("correct");
         setSeconds((prevSeconds) =>
           Math.min(prevSeconds + 5, gameSettings.maxTime),
         );

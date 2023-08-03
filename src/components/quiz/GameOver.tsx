@@ -7,8 +7,7 @@ function GameOver({ resetGame }: GameOverProps) {
     <div className="QuizPage__result">
       <h2>Game Over: Aliens have taken over earth</h2>
       <button className="QuizPage__restart" onClick={() => resetGame()}>
-        {" "}
-        Restart{" "}
+        Restart
       </button>
     </div>
   );

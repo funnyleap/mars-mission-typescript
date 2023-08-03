@@ -20,7 +20,7 @@ const setLocalCookie = (name: string, value: string, daysToExpire: number) => {
   document.cookie = cookieString;
 };
 
-const area51UnlockScore = 0;
+const area51UnlockScore = 10;
 
 function QuizPassed({ resetGame, score }: QuizPassedProps) {
   useEffect(() => {
@@ -29,7 +29,6 @@ function QuizPassed({ resetGame, score }: QuizPassedProps) {
   const tweetLink =
     "&url=https%3A%2F%2Ftechswitch%2Dlearners%2Egithub%2Eio%2Fmars%2Dmission%2D2023%2Daug%2F%23%2Fquiz";
   const tweetText = `I just scored ${score}/10 on the mars quiz. Try beat my score`;
-  // const tweetLink = '&url=http%3A%2F%2Flocalhost%3A5173%2Fmars%2Dmission%2D2023%2Daug%2F%23%2Fquiz';
   const tweetTextQuery = tweetText.replace(/ /g, "%20");
   return (
     <div className="QuizPage__result-pass">
