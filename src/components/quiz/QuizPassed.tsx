@@ -23,7 +23,8 @@ function QuizPassed({ resetGame, score }: QuizPassedProps) {
   useEffect(() => {
     setLocalCookie("security-clearance", "super-secret-cleared", 1);
   });
-  const tweetLink = '&url=http%3A%2F%2Fgithub%2Ecom';
+  const tweetLink =
+    "&url=https%3A%2F%2Ftechswitch%2Dlearners%2Egithub%2Eio%2Fmars%2Dmission%2D2023%2Daug%2F%23%2Fquiz";
   const tweetText = `I just scored ${score}/10 on the mars quiz. Try beat my score`;
   // const tweetLink = '&url=http%3A%2F%2Flocalhost%3A5173%2Fmars%2Dmission%2D2023%2Daug%2F%23%2Fquiz';
   const tweetTextQuery = tweetText.replace(/ /g, "%20");
