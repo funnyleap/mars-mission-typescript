@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
 import "./BirthdayCardPage.scss";
 import { getPhotoOfTheDayData } from "../api/nasaApi";
 import birthdayCardPlaceholder from "../assets/birthday-card-default.jpg";
@@ -24,35 +24,26 @@ const BirthdayCardPage = () => {
   const [message, setMessage] = useState("");
   const [sender, setSender] = useState("");
 
-  function handleRecipientChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleRecipientChange(event: ChangeEvent<HTMLInputElement>) {
     setRecipient(event.target.value);
   }
-  function handleMessageChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleMessageChange(event: ChangeEvent<HTMLTextAreaElement>) {
     setMessage(event.target.value);
   }
-  function handleSenderChange(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleSenderChange(event: ChangeEvent<HTMLInputElement>) {
     setSender(event.target.value);
   }
 
-  const ref = useRef(null);
-  const [printArea, setPrintArea] = useState(null);
-
-  useEffect(() => {
-    setPrintArea(ref.current);
-  }, []);
-
   function handlePrint() {
-    const printContents: HTMLElement = printArea.innerHTML;
-    const originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
     window.print();
-    document.body.innerHTML = originalContents;
   }
 
   return (
     <>
-      <h1>Create a personalised birthday card!</h1>
-      <div className="BirthdayCardPage" id="BirthdayCardPage" ref={ref}>
+      <h1 className="BirthdayCardHeader">
+        Create a personalised birthday card!
+      </h1>
+      <div className="BirthdayCardPage" id="BirthdayCardPage">
         <div className="BirthdayCardPage__image">
           <h5>NASA - Astronomy Picture of the Day:</h5>
           <img
