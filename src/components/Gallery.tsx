@@ -15,31 +15,35 @@ const Gallery = ({ galleryPhotos }: GalleryProps) => {
     <div className="Gallery">
       {galleryPhotos ? (
         galleryPhotos.map((photoDetails) => (
-          <img
-            className="ImageCard"
-            src={photoDetails.img_src}
-            onClick={() => setSelectedPhotoDetails(photoDetails)}
-            alt="Image Thumbnail"
-            height={200}
-          />
+          <div className="Gallery__ImageContainer">
+            <img
+              className="Gallery__ImageCard"
+              src={photoDetails.img_src}
+              onClick={() => setSelectedPhotoDetails(photoDetails)}
+              alt="Image Thumbnail"
+              height={200}
+            />
+          </div>
         ))
       ) : (
         <p>Loading...</p>
       )}
       {selectedPhotoDetails && (
         <Modal closeAction={() => setSelectedPhotoDetails(undefined)}>
-          <img
-            className="Gallery__ModalImage"
-            src={selectedPhotoDetails.img_src}
-            alt="Enlarged Image"
-            width={800}
-          />
-          <p className="Gallery__ModalImageDetails">
-            Taken by the {selectedPhotoDetails.camera.full_name}, on{" "}
-            {selectedPhotoDetails.rover.name} on Martian sol{" "}
-            {selectedPhotoDetails.sol} (Earth Date{" "}
-            {selectedPhotoDetails.earth_date})
-          </p>
+          <div className="Gallery__ModalImageNDetails">
+            <img
+              className="Gallery__ModalImage"
+              src={selectedPhotoDetails.img_src}
+              alt="Enlarged Image"
+              width={800}
+            />
+            <p className="Gallery__ModalImageDetails">
+              Taken by the {selectedPhotoDetails.camera.full_name}, on{" "}
+              {selectedPhotoDetails.rover.name} on Martian sol{" "}
+              {selectedPhotoDetails.sol} (Earth Date{" "}
+              {selectedPhotoDetails.earth_date})
+            </p>
+          </div>
         </Modal>
       )}
     </div>
