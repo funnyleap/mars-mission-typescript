@@ -30,20 +30,18 @@ const Gallery = ({ galleryPhotos }: GalleryProps) => {
       )}
       {selectedPhotoDetails && (
         <Modal closeAction={() => setSelectedPhotoDetails(undefined)}>
-          <div className="Gallery__ModalImageNDetails">
-            <img
-              className="Gallery__ModalImage"
-              src={selectedPhotoDetails.img_src}
-              alt="Enlarged Image"
-              width={800}
-            />
-            <p className="Gallery__ModalImageDetails">
-              Taken by the {selectedPhotoDetails.camera.full_name}, on{" "}
-              {selectedPhotoDetails.rover.name} on Martian sol{" "}
-              {selectedPhotoDetails.sol} (Earth Date{" "}
-              {selectedPhotoDetails.earth_date})
-            </p>
-          </div>
+          <img
+            className="Gallery__ModalImage"
+            src={selectedPhotoDetails.img_src}
+            alt="Enlarged Image"
+            width={800}
+          />
+          <p className="Gallery__ModalImageDetails">
+            Taken by the {selectedPhotoDetails.camera.full_name}, on{" "}
+            {selectedPhotoDetails.rover.name} on Martian sol{" "}
+            {selectedPhotoDetails.sol} (Earth Date{" "}
+            {selectedPhotoDetails.earth_date})
+          </p>
         </Modal>
       )}
     </div>
