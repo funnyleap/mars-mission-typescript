@@ -5,13 +5,13 @@ import "./Answer.scss";
 interface AnswerProps {
   isCorrect: boolean;
   answerText: string;
-  handleAnswerOptionClick(isCorrect: boolean): void;
+  onClick(isCorrect: boolean): void;
 }
 
 export default function Answer({
   isCorrect,
   answerText,
-  handleAnswerOptionClick,
+  onClick: handleAnswerOptionClick,
 }: AnswerProps) {
   const [buttonClicked, setButtonClicked] = useState(false);
 

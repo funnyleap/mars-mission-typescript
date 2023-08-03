@@ -5,7 +5,7 @@ interface GameOverProps {
 function GameOver({ resetGame }: GameOverProps) {
   return (
     <div className="QuizPage__result">
-      <h2>Game Over: Aliens have taken over earth</h2>
+      <h2>Game Over: Aliens have taken over earth!! 😱👽</h2>
       <button className="QuizPage__restart" onClick={() => resetGame()}>
         Restart
       </button>
@@ -14,9 +14,3 @@ function GameOver({ resetGame }: GameOverProps) {
 }
 
 export default GameOver;
-
-{
-  /* <div className="QuizPage__result">
-      You scored {displayedScore} out of {questions}
-    </div> */
-}

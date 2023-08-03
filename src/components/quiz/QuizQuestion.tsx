@@ -32,7 +32,7 @@ function QuizQuestion({
             key={answerOption.optionText}
             isCorrect={answerOption.isCorrect}
             answerText={answerOption.optionText}
-            handleAnswerOptionClick={handleAnswerOptionClick}
+            onClick={handleAnswerOptionClick}
           />
         ))}
       </div>

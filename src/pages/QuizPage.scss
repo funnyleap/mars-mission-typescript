@@ -46,16 +46,14 @@ body {
 }
 
 .mars {
-  /* background-color: red; */
-  background: url(../assets/quiz-mars-cartoon.png), red;
+  background: url("/quiz-mars-cartoon.png"), red;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   left: 0;
 }
 .ufo {
-  background: url(../assets/quiz-ufo-cartoon.png);
-  /* border-radius: 50%; */
+  background: url("/quiz-ufo-cartoon.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -63,8 +61,7 @@ body {
 }
 
 .earth {
-  /* background-color: green; */
-  background: url(../assets/quiz-earth-cartoon.png), blue;
+  background: url("/quiz-earth-cartoon.png"), blue;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: cover;

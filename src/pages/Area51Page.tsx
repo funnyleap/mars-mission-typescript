@@ -1,5 +1,4 @@
 import "./Area51Page.scss";
-import imageSecret from "../assets/image-martian-selfie.jpeg";
 import { useState, useEffect } from "react";
 
 const checkSecurityCookie = () => {
@@ -27,7 +26,7 @@ function Area51Page() {
   return securityCleared ? (
     <div className="Area51Page">
       <h1>Area 51.</h1>
-      <h2 className="Area51Page__classification">TOP SECRET</h2>
+      <p className="Area51Page__classification">TOP SECRET</p>
       <p>
         You have now been cleared to find out the most secret discoveries from
         our Mars mission.
@@ -39,10 +38,10 @@ function Area51Page() {
         life.
       </p>
       <p>
-        We believe that the rover has been completely scrapped for parts now
+        We believe that the rover has been completely scrapped for parts now.
       </p>
-      <img src={imageSecret} className="Area51__image" />
-      <h2 className="Area51Page__classification">TOP SECRET</h2>
+      <img src="/image-martian-selfie.jpeg" className="Area51__image" />
+      <p className="Area51Page__classification">TOP SECRET</p>
     </div>
   ) : (
     <h1>You shouldn't be here</h1>

@@ -8,6 +8,8 @@ import { Question, getRandomQuestions } from "../data/quizData";
 
 import { useAnimate } from "framer-motion";
 
+type GameState = "gameMenu" | "gameRunning" | "gameOver" | "gameWon";
+
 const gameSettings = {
   numOfQuestions: 10,
   maxTime: 30,
@@ -22,9 +24,7 @@ function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [firstIncorrect, setFirstIncorrect] = useState(true);
-  const [gameState, setGameState] = useState<
-    "gameMenu" | "gameRunning" | "gameOver" | "gameWon"
-  >("gameMenu");
+  const [gameState, setGameState] = useState<GameState>("gameMenu");
   const [showAnimation, setShowAnimation] = useState(false);
 
   const [questions, setQuestions] = useState<Question[]>();

@@ -28,7 +28,7 @@ function QuizPassed({ resetGame, score }: QuizPassedProps) {
   });
   const tweetLink =
     "&url=https%3A%2F%2Ftechswitch%2Dlearners%2Egithub%2Eio%2Fmars%2Dmission%2D2023%2Daug%2F%23%2Fquiz";
-  const tweetText = `I just scored ${score}/10 on the mars quiz. Try beat my score`;
+  const tweetText = `I just scored ${score}/10 on the Mars quiz. Try to beat my score!`;
   const tweetTextQuery = tweetText.replace(/ /g, "%20");
   return (
     <div className="QuizPage__result-pass">
@@ -36,13 +36,9 @@ function QuizPassed({ resetGame, score }: QuizPassedProps) {
       <h2>{`Congratulations! You scored ${score}/10.`}</h2>
       <h3>You're NASA material!!</h3>
       {score < area51UnlockScore ? (
-        <>
-          <h4>Retry the quiz to improve your score </h4>
-        </>
+        <p>Retry the quiz to improve your score </p>
       ) : (
-        <>
-          <Link to="/area51">Reveal the truth about Mars</Link>
-        </>
+        <Link to="/area51">Reveal the truth about Mars</Link>
       )}
       <div className="QuizPage__buttons">
         <Button className="QuizPage__restart" onClick={resetGame}>
@@ -54,7 +50,7 @@ function QuizPassed({ resetGame, score }: QuizPassedProps) {
           target="_blank"
           href={`https://twitter.com/intent/tweet?text=${tweetTextQuery}${tweetLink}`}
         >
-          <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" />{" "}
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" />
           Share
         </a>
       </div>
