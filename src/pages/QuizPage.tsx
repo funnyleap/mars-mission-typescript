@@ -184,7 +184,11 @@ function QuizPage() {
   }
 
   return (
-    <div className="QuizPage">
+    <div
+      className={`QuizPage ${
+        gameState === "gameRunning" && seconds < 7.5 ? "flashing" : ""
+      }`}
+    >
       <div
         className={
           showAnimation
