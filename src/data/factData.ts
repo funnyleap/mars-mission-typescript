@@ -4,7 +4,7 @@ interface Fact {
   factImage: string;
 }
 
-interface Section {
+export interface Section {
   sectionTitle: string;
   facts: Fact[];
 }

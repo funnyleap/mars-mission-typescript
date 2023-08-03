@@ -1,5 +1,5 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import FactsPage from "./components/FactList";
+import FactPage from "./pages/FactPage";
 import LandingPage from "./pages/LandingPage";
 import PageWithNavBar from "./components/PageWithNavBar";
 
@@ -9,7 +9,7 @@ const App = () => {
       <Routes>
         <Route index element={<LandingPage />} />
         <Route element={<PageWithNavBar />}>
-          <Route path="/facts" element={<FactsPage />} />
+          <Route path="/facts" element={<FactPage />} />
         </Route>
       </Routes>
     </Router>

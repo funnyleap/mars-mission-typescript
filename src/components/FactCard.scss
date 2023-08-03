@@ -1,0 +1,23 @@
+@use "../styles/variables" as *;
+.fact-header {
+  text-align: left;
+}
+
+li {
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: center;
+}
+
+.fact-image {
+  height: 300px;
+}
+
+.fact-text {
+  margin: 3rem;
+}
