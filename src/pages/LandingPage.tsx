@@ -55,6 +55,7 @@ const LandingPage = () => {
           MISSION
         </span>
       </h1>
+
       <nav className="LandingPage__Dashboard">
         {pageButtons.map((pageButton) => (
           <Link to={pageButton.path} key={pageButton.name}>
