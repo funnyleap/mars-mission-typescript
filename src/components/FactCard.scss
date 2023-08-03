@@ -1,8 +1,11 @@
 @use "../styles/variables" as *;
+@use "../styles/mixins" as *;
 
 .fact-section {
   padding: 0px 24px;
   border-radius: 25px;
+  max-width: 400px;
+  margin: auto;
 }
 
 .fact-card {
@@ -16,15 +19,20 @@
   box-shadow: 0 0 3px;
 }
 
-.card-content {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-  gap: 12px;
-  align-items: center;
+.fact-image {
+  width: 100%;
+  border-radius: 15px;
 }
 
-.fact-image {
-  max-width: 200px;
-  max-height: 400px;
-  border-radius: 15px;
+@include device(tablet) {
+  .fact-section {
+    max-width: 700px;
+  }
+
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 15px;
+  }
 }

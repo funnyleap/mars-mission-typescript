@@ -46,13 +46,13 @@ const facts: Section[] = [
         factTitle: "Atmosphere",
         factText:
           "Mars has a thin atmosphere made up mostly of carbon dioxide (CO₂), argon (Ar), nitrogen (N2), and a small amount of oxygen and water vapor. Bring a space suit!",
-        factImage: "Red Planet",
+        factImage: "/images/atmosphere.jpg",
       },
       {
         factTitle: "Inhospitable Landscape",
         factText:
           "At this time, Mars' surface cannot support life as we know it. Current missions are determining Mars' past and future potential for life. It can get pretty cold on Mars, much colder than our own planet, since it's further away from the sun. At the equator, temperatures can reach 20°C, but at its poles they can plummet to as low as -140°C. Brr!",
-        factImage: "Red Planet",
+        factImage: "/images/inhospitable.jpg",
       },
     ],
   },
@@ -63,19 +63,19 @@ const facts: Section[] = [
         factTitle: "How Many Moons?",
         factText:
           "Mars has two small moons, Phobos and Deimos, that may originally have been asteroids which were captured by Mars' gravitational field.",
-        factImage: "/images/phobosdeimos.jpg",
+        factImage: "/images/twomoons.jpg",
       },
       {
         factTitle: "Odd Shapes",
         factText:
           "The two moons of Mars, Phobos and Deimos, are potato shaped. This is because they have too little mass for gravity to make them spherical. I wonder if they taste like potato.",
-        factImage: "Red Planet",
+        factImage: "/images/potatomoons.jpg",
       },
       {
         factTitle: "Where Did They Get Their Names?",
         factText:
           "The moons get their names from the two mythical horses that pulled the chariot of the Greek god of war, Ares.",
-        factImage: "Red Planet",
+        factImage: "/images/phobosdeimos.jpg",
       },
     ],
   },
@@ -86,7 +86,7 @@ const facts: Section[] = [
         factTitle: "Mars Exploration",
         factText:
           "There have been multiple missions to Mars over the years and these have landed several different types of vehicle on Mars to explore and gather data for study. NASA currently has two rovers (Curiosity and Perseverance), one lander (InSight), and one helicopter (Ingenuity) exploring the surface of Mars.",
-        factImage: "Red Planet",
+        factImage: "/images/explore.jpg",
       },
       {
         factTitle: "Curiosity",
@@ -98,19 +98,19 @@ const facts: Section[] = [
         factTitle: "Perseverance",
         factText:
           "The Perseverance rover is based on the Mars Science Laboratory's Curiosity rover configuration. The largest and most advanced of any rover sent to another world, Perseverance launched on July 30, 2020 and landed on Mars on February 18, 2021. It is car-sized, weighing in at 1,025kg! It's about 3 meters long, 2.7 meters wide, and 2.2 meters tall. it's main job is to seek signs of ancient life and collect samples of rock and regolith (broken rock and soil) for possible return to Earth.",
-        factImage: "Red Planet",
+        factImage: "/images/perserverance.jpg",
       },
       {
         factTitle: "InSight",
         factText:
           "NASA's InSight lander opened a window into the 'inner space' of Mars. Its instruments peered into the Martian subsurface, seeking the signatures of the processes that shaped the rocky planets of the inner solar system, more than four billion years ago. InSight's findings shed light on the formation of Mars, Earth, and even rocky exoplanets. The lander was built on the proven design of NASA's Mars Phoenix lander. InSight's robotic arm was over 5 feet 9 inches (1.8 meters) long. It lifted a seismometer and heat flow probe from the deck and placed them on the surface. The camera on the arm provided color 3D views of the landing site, instrument placement, and activities. Sensors measured weather and magnetic field variations.",
-        factImage: "Red Planet",
+        factImage: "/images/insight.jpg",
       },
       {
         factTitle: "Ingenuity",
         factText:
           "The Mars Helicopter, Ingenuity, is a technology demonstration to test powered, controlled flight on another world for the first time. It hitched a ride to Mars on the Perseverance rover. Once the rover reached a suitable 'airfield' location, it released Ingenuity to the surface so it could perform a series of test flights over a 30-Martian-day experimental window. Ingenuity has paved the way for future aerial missions on the planet and has been utlised in scouting areas of potential significance for the Perseverance rover to explore.",
-        factImage: "Red Planet",
+        factImage: "/images/ingenuity.jpg",
       },
     ],
   },
@@ -121,25 +121,25 @@ const facts: Section[] = [
         factTitle: "Orbital Period",
         factText:
           "As Mars orbits the Sun, it completes one rotation every 24.6 hours, which is very similar to one day on Earth (23.9 hours). Martian days are called sols, short for 'solar day'. A year on Mars lasts 669.6 sols, which is the same as 687 Earth days.",
-        factImage: "Red Planet",
+        factImage: "/images/marsyear.jpg",
       },
       {
         factTitle: "That's A Long Commute",
         factText:
           "From an average distance of 142 million miles (228 million kilometers), Mars is 1.5 astronomical units away from the Sun. One astronomical unit (abbreviated as AU), is the distance from the Sun to Earth. From this distance, it takes sunlight 13 minutes to travel from the Sun to Mars.",
-        factImage: "Red Planet",
+        factImage: "/images/marssolarsystem.jpg",
       },
       {
         factTitle: "Jaunty Angles",
         factText:
           "Mars' axis of rotation is tilted 25 degrees with respect to the plane of its orbit around the Sun. This is another similarity with Earth, which has an axial tilt of 23.4 degrees. Like Earth, Mars has distinct seasons, but they last longer than seasons here on Earth since Mars takes longer to orbit the Sun (because it's farther away). And while here on Earth the seasons are evenly spread over the year, lasting 3 months (or one quarter of a year), on Mars the seasons vary in length because of Mars' elliptical (egg-shaped) orbit around the Sun.",
-        factImage: "Red Planet",
+        factImage: "/images/marsseasons.webp",
       },
       {
         factTitle: "Seasonal Changes",
         factText:
           "Spring in the northern hemisphere (autumn in the southern) is the longest season at 194 sols. Autumn in the northern hemisphere (spring in the southern) is the shortest at 142 days. Northern winter/southern summer is 154 sols, and northern summer/southern winter is 178 sols.",
-        factImage: "Red Planet",
+        factImage: "/images/marsseasons2.png",
       },
     ],
   },
