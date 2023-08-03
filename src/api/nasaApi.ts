@@ -39,9 +39,13 @@ interface GalleryDetails {
   photos: GalleryPhotoDetails[];
 }
 
-export const getGalleryPhotos = async (): Promise<GalleryDetails> => {
+export const getGalleryPhotos = async (
+  rover: string,
+  sol: number,
+  camera: string,
+): Promise<GalleryDetails> => {
   const response = await fetch(
-    `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=1&camera=mast&api_key=${apiKey}`,
+    `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}&page=1&camera=${camera}&api_key=${apiKey}`,
   );
   return await response.json();
 };
