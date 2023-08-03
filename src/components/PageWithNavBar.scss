@@ -1,0 +1,10 @@
+@use "../styles/variables" as *;
+
+main {
+  min-height: 20rem;
+  max-width: 85vw;
+  margin: auto;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background-color: $main-background;
+}
