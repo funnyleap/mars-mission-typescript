@@ -9,6 +9,7 @@ const Rover = ({ rover }: RoverProps) => {
   const [roverData, setRoverData] = useState<RoverManifestDetails>();
 
   useEffect(() => {
+    setRoverData(undefined);
     getRoverManifestData(rover).then((data) => setRoverData(data));
   }, [rover]);
 
