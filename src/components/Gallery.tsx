@@ -3,6 +3,7 @@ import { GalleryPhotoDetails } from "../api/nasaApi";
 import "./Gallery.scss";
 import "../styles/_variables.scss";
 import Modal from "./Modal";
+
 interface GalleryProps {
   galleryPhotos: GalleryPhotoDetails[];
 }
