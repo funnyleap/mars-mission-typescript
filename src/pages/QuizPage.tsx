@@ -14,11 +14,11 @@ const gameSettings = {
   maxVw: 72,
   startVw: 10,
   wrongTime: 3,
-  correctTime: 5,
+  correctTime: 3,
 };
 
 function QuizPage() {
-  const [seconds, setSeconds] = useState(30);
+  const [seconds, setSeconds] = useState(gameSettings.maxTime);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [firstIncorrect, setFirstIncorrect] = useState(true);
@@ -92,7 +92,9 @@ function QuizPage() {
       jumpBackAnimation();
       setTimeout(() => {
         console.log("correct");
-        setSeconds((prevSeconds) => Math.min(prevSeconds + 5, 30));
+        setSeconds((prevSeconds) =>
+          Math.min(prevSeconds + 5, gameSettings.maxTime),
+        );
         setScore(score + 1);
         const nextQuestion = currentQuestion + 1;
         if (questions && nextQuestion < questions.length) {
@@ -124,7 +126,7 @@ function QuizPage() {
 
   function resetGame() {
     setQuestions(getRandomQuestions(gameSettings.numOfQuestions));
-    setSeconds(30);
+    setSeconds(gameSettings.maxTime);
     setScore(0);
     setCurrentQuestion(0);
     setFirstIncorrect(false);

@@ -1,3 +1,5 @@
+@use "../styles/variables" as *;
+
 $planet-width-mobile: 4rem;
 $planet-width-tablet: 5rem;
 $planet-width-desktop: 8vw;
@@ -9,52 +11,17 @@ $solar-system-height-desktop: 12vw;
 $solar-system-width-mobile: 80vw;
 $solar-system-width: 80vw;
 
-$mobile-gutter: 0.4rem;
-
 body {
   margin: 0px;
 }
 
 .QuizPage {
-  font-size: 2rem;
   max-width: 80vw;
-  height: 100vh;
 
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   justify-content: space-between;
-
-  &__question-section {
-    background-color: aqua;
-    margin-top: 3rem;
-  }
-
-  &__answers {
-    display: flex;
-    flex-direction: column;
-    gap: $mobile-gutter;
-
-    font-size: 10rem;
-
-    margin-bottom: 3rem;
-  }
-
-  &__answer {
-    font-size: 1.5rem;
-
-    // &:hover {
-    //   background-color: blue;
-    // }
-
-    &--correct {
-      background-color: green;
-    }
-
-    &--incorrect {
-      background-color: red;
-    }
-  }
 
   &__solar-system {
     background-color: black;
@@ -80,15 +47,14 @@ body {
 
 .mars {
   /* background-color: red; */
-  background: url("https://paul7dxb.github.io/hosted-assets/mars/mars-cartoon.png"),
-    red;
+  background: url(../assets/quiz-mars-cartoon.png), red;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: cover;
   left: 0;
 }
 .ufo {
-  background: url("https://paul7dxb.github.io/hosted-assets/mars/ufo-cartoon.png");
+  background: url(../assets/quiz-ufo-cartoon.png);
   /* border-radius: 50%; */
   background-position: center;
   background-repeat: no-repeat;
@@ -98,8 +64,7 @@ body {
 
 .earth {
   /* background-color: green; */
-  background: url("https://paul7dxb.github.io/hosted-assets/mars/earth-cartoon.png"),
-    blue;
+  background: url(../assets/quiz-earth-cartoon.png), blue;
   border-radius: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -139,5 +104,21 @@ body {
       width: 80vw;
       margin: 0 auto;
     }
+  }
+}
+
+.flashing {
+  animation: flash 2s infinite;
+}
+
+@keyframes flash {
+  0%,
+  50%,
+  100% {
+    background-color: transparent;
+  }
+  25%,
+  75% {
+    background-color: red;
   }
 }

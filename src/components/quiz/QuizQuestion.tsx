@@ -1,5 +1,6 @@
 import { Option } from "../../data/quizData";
 import Answer from "./Answer";
+import "./QuizQuestion.scss";
 
 interface QuestionProps {
   questionNumber: number;
@@ -14,24 +15,16 @@ function QuizQuestion({
   questionNumber,
   totalQuestions,
   questionText,
-  timeLeft,
   answers,
   handleAnswerOptionClick,
 }: QuestionProps) {
   return (
     <>
       <div className="QuizPage__question-section">
-        <div className="QuizPage__question-count">
-          <p>
-            Question {questionNumber}/{totalQuestions}
-          </p>
-        </div>
-        <div className="QuizPage__question-text">
-          <p>{questionText}</p>
-        </div>
-      </div>
-      <div>
-        <p>Timer: {timeLeft}</p>
+        <p className="QuizPage__question-count">
+          Question {questionNumber}/{totalQuestions}
+        </p>
+        <p className="QuizPage__question-text">{questionText}</p>
       </div>
       <div className="QuizPage__answers">
         {answers.map((answerOption) => (

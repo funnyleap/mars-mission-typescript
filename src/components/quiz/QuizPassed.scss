@@ -18,3 +18,12 @@
     width: 14px;
   }
 }
+
+.QuizPage {
+  &__buttons {
+    margin-top: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+  }
+}

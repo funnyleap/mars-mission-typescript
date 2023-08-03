@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Error404Page.scss";
 
 function Error404Page() {
@@ -12,7 +12,7 @@ function Error404Page() {
       />
       <div>
         <p>It looks like you've got a bit lost</p>
-        <NavLink to="/">Take me Home</NavLink>
+        <Link to="/">Take me Home</Link>
       </div>
     </div>
   );

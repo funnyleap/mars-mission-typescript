@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "../Button";
+import "./Answer.scss";
 
 interface AnswerProps {
   isCorrect: boolean;
@@ -27,11 +29,11 @@ export default function Answer({
     : "QuizPage__answer QuizPage__answer--incorrect";
 
   return (
-    <button
+    <Button
       className={buttonClicked ? clickedClassName : "QuizPage__answer"}
       onClick={() => onClickHandler(isCorrect)}
     >
       {answerText}
-    </button>
+    </Button>
   );
 }

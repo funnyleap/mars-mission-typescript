@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Button from "../Button";
 import "./QuizPassed.scss";
 
 interface QuizPassedProps {
@@ -19,6 +20,8 @@ const setLocalCookie = (name: string, value: string, daysToExpire: number) => {
   document.cookie = cookieString;
 };
 
+const area51UnlockScore = 0;
+
 function QuizPassed({ resetGame, score }: QuizPassedProps) {
   useEffect(() => {
     setLocalCookie("security-clearance", "super-secret-cleared", 1);
@@ -30,20 +33,32 @@ function QuizPassed({ resetGame, score }: QuizPassedProps) {
   const tweetTextQuery = tweetText.replace(/ /g, "%20");
   return (
     <div className="QuizPage__result-pass">
-      <h2>Congratulations! You've successfully completed the quiz!</h2>
+      <h1></h1>
+      <h2>{`Congratulations! You scored ${score}/10.`}</h2>
       <h3>You're NASA material!!</h3>
-      <button className="QuizPage__restart" onClick={resetGame}>
-        Restart
-      </button>
-      <a
-        className="twitter-share-button"
-        target="_blank"
-        href={`https://twitter.com/intent/tweet?text=${tweetTextQuery}${tweetLink}`}
-      >
-        <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" />{" "}
-        Share
-      </a>
-      <NavLink to="/area51">Area 51</NavLink>
+      {score < area51UnlockScore ? (
+        <>
+          <h4>Retry the quiz to improve your score </h4>
+        </>
+      ) : (
+        <>
+          <Link to="/area51">Reveal the truth about Mars</Link>
+        </>
+      )}
+      <div className="QuizPage__buttons">
+        <Button className="QuizPage__restart" onClick={resetGame}>
+          Restart Quiz
+        </Button>
+
+        <a
+          className="twitter-share-button"
+          target="_blank"
+          href={`https://twitter.com/intent/tweet?text=${tweetTextQuery}${tweetLink}`}
+        >
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124021.png" />{" "}
+          Share
+        </a>
+      </div>
     </div>
   );
 }
