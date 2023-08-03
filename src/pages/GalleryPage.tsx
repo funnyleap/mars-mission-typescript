@@ -13,7 +13,6 @@ const GalleryPage = () => {
 
   return (
     <div>
-      <h1>Mars Mission Gallery</h1>
       {galleryPhotos ? (
         <Gallery galleryPhotos={galleryPhotos} />
       ) : (

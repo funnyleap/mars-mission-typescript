@@ -35,9 +35,9 @@
     width: 30px;
     font-size: 30px;
     font-weight: bold;
-  }
 
-  &__Close:hover {
-    background-color: $button-dashboard-hover;
+    &:hover {
+      background-color: $button-dashboard-hover;
+    }
   }
 }

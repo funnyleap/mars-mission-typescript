@@ -9,17 +9,13 @@ interface ModalProps {
 
 const Modal = ({ children, closeAction }: ModalProps) => {
   return (
-    <div className="Gallery">
-      {
-        <div className="Modal__Backdrop">
-          <div className="Modal">
-            <Button className="Modal__Close" onClick={closeAction}>
-              ×
-            </Button>
-            {children}
-          </div>
-        </div>
-      }
+    <div className="Modal__Backdrop">
+      <div className="Modal">
+        <Button className="Modal__Close" onClick={closeAction}>
+          ×
+        </Button>
+        {children}
+      </div>
     </div>
   );
 };

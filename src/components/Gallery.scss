@@ -27,23 +27,14 @@
     object-position: center;
     border-radius: 0.625em;
     border: solid 0.312em $color-primary-darkest;
-  }
 
-  &__ImageCard:hover {
-    border: solid 0.312em $button-dashboard-hover;
-  }
-
-  &__ModalImageNDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
+    &:hover {
+      border: solid 0.312em $button-dashboard-hover;
+    }
   }
 
   &__ModalImage {
     max-width: 100%;
-    // height: calc(100% - 30px);
     border: solid 0.312em $color-primary-darkest;
     border-radius: 0.625em;
     flex-grow: 1;
@@ -57,11 +48,4 @@
     margin-bottom: 0;
     flex-grow: 1;
   }
-}
-
-h1 {
-  font-family: $dashboard-font;
-  color: $color-primary-darker;
-  text-align: center;
-  font: size 1.875em;
 }

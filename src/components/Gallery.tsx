@@ -21,7 +21,7 @@ const Gallery = ({ galleryPhotos }: GalleryProps) => {
               className="Gallery__ImageCard"
               src={photoDetails.img_src}
               onClick={() => setSelectedPhotoDetails(photoDetails)}
-              alt="Image Thumbnail"
+              alt="Mars Surface"
               height={200}
             />
           </div>
@@ -34,7 +34,7 @@ const Gallery = ({ galleryPhotos }: GalleryProps) => {
           <img
             className="Gallery__ModalImage"
             src={selectedPhotoDetails.img_src}
-            alt="Enlarged Image"
+            alt="Mars Surface"
             width={800}
           />
           <p className="Gallery__ModalImageDetails">
