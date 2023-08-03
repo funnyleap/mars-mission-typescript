@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import image404 from "../assets/image-404.jpeg";
 import "./Error404Page.scss";
 
 function Error404Page() {
@@ -7,7 +8,7 @@ function Error404Page() {
       <h1>404</h1>
       <img
         className="Error404Page__image"
-        src="https://paul7dxb.github.io/hosted-assets/mars/404-image.jpeg"
+        src={image404}
         alt="404 image sad rover lost"
       />
       <div>
