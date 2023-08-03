@@ -4,7 +4,6 @@ import iconQuiz from "../assets/icon-quiz.png";
 import iconRovers from "../assets/icon-rovers.png";
 import iconWeather from "../assets/icon-weather.png";
 import "./LandingPage.scss";
-import Button from "../components/Button";
 
 interface PageButton {
   name: string;
@@ -56,9 +55,6 @@ const LandingPage = () => {
           MISSION
         </span>
       </h1>
-
-      <Button> asdasd</Button>
-
       <nav className="LandingPage__Dashboard">
         {pageButtons.map((pageButton) => (
           <Link to={pageButton.path} key={pageButton.name}>
