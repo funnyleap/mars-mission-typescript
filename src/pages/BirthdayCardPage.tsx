@@ -24,13 +24,13 @@ const BirthdayCardPage = () => {
   const [message, setMessage] = useState("");
   const [sender, setSender] = useState("");
 
-  function handleRecipientChange(event) {
+  function handleRecipientChange(event: React.ChangeEvent<HTMLInputElement>) {
     setRecipient(event.target.value);
   }
-  function handleMessageChange(event) {
+  function handleMessageChange(event: React.ChangeEvent<HTMLInputElement>) {
     setMessage(event.target.value);
   }
-  function handleSenderChange(event) {
+  function handleSenderChange(event: React.ChangeEvent<HTMLInputElement>) {
     setSender(event.target.value);
   }
 
@@ -42,7 +42,7 @@ const BirthdayCardPage = () => {
   }, []);
 
   function handlePrint() {
-    const printContents = printArea.innerHTML;
+    const printContents: HTMLElement = printArea.innerHTML;
     const originalContents = document.body.innerHTML;
     document.body.innerHTML = printContents;
     window.print();
