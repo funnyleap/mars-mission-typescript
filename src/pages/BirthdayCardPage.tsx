@@ -1,8 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 import "./BirthdayCardPage.scss";
 import { getPhotoOfTheDayData } from "../api/nasaApi";
-import birthdayCardPlaceholder from "../assets/birthday-card-default.jpg";
-import birthdayCardStamp from "../assets/birthday-card-stamp.png";
 
 const BirthdayCardPage = () => {
   const [photoOfTheDayTitle, setPhotoOfTheDayTitle] = useState<string>();
@@ -15,7 +13,7 @@ const BirthdayCardPage = () => {
         setPhotoOfTheDayUrl(data.url);
       })
       .catch(() => {
-        setPhotoOfTheDayUrl(birthdayCardPlaceholder);
+        setPhotoOfTheDayUrl("/assets/birthday-card-default.jpg");
         setPhotoOfTheDayTitle("Mars Rover");
       });
   }, []);
@@ -48,7 +46,7 @@ const BirthdayCardPage = () => {
           <h5>NASA - Astronomy Picture of the Day:</h5>
           <img
             className="BirthdayCardPage__stamp"
-            src={birthdayCardStamp}
+            src="/assets/birthday-card-stamp.png"
             alt="NASA Postage Stamp"
           />
           {photoOfTheDayUrl && (
