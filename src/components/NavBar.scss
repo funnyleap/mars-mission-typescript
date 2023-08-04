@@ -116,3 +116,9 @@
     }
   }
 }
+
+@media print {
+  .NavBar {
+    display: none;
+  }
+}

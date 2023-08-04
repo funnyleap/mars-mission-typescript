@@ -9,8 +9,8 @@ const pageLinks = [
     path: "/rovers",
   },
   {
-    name: "Weather",
-    path: "/weather",
+    name: "Facts",
+    path: "/facts",
   },
   {
     name: "Quiz",

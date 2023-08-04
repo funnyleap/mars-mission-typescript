@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import iconBirthdayCard from "../assets/icon-birthdaycard.png";
 import iconQuiz from "../assets/icon-quiz.png";
 import iconRovers from "../assets/icon-rovers.png";
-import iconWeather from "../assets/icon-weather.png";
+import iconFacts from "../assets/icon-facts.png";
 import "./LandingPage.scss";
 
 interface PageButton {
@@ -36,11 +36,11 @@ const pageButtons: PageButton[] = [
     path: "/quiz",
   },
   {
-    name: "Weather",
-    icon: iconWeather,
-    heading: "Check the weather on Mars",
+    name: "Facts",
+    icon: iconFacts,
+    heading: "Discover the Fun Facts!",
     className: "LandingPage__DashboardItemIcon--weather",
-    path: "/weather",
+    path: "/facts",
   },
 ];
 
