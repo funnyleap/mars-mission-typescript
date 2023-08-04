@@ -39,7 +39,7 @@ function Area51Page() {
         life.
       </p>
       <p>
-        We believe that the rover has been completely scrapped for parts now
+        We believe that the rover has been completely scrapped for parts now.
       </p>
       <img
         src="/image-martian-selfie.jpeg"
