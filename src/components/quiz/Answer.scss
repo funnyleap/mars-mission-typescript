@@ -1,0 +1,15 @@
+@use "../../styles/variables" as *;
+
+.QuizPage {
+  &__answer {
+    font-size: 1.5rem;
+
+    &--correct {
+      background-color: $button-dashboard-green;
+    }
+
+    &--incorrect {
+      background-color: $header-font-color;
+    }
+  }
+}

@@ -1,0 +1,121 @@
+@use "../styles/variables" as *;
+
+$planet-width-mobile: 4rem;
+$planet-width-tablet: 5rem;
+$planet-width-desktop: 8vw;
+
+$solar-system-height-mobile: 16vh;
+$solar-system-height-tablet: 10rem;
+$solar-system-height-desktop: 12vw;
+
+$solar-system-width-mobile: 80vw;
+$solar-system-width: 80vw;
+
+body {
+  margin: 0px;
+}
+
+.QuizPage {
+  max-width: 80vw;
+
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: space-between;
+
+  &__solar-system {
+    background-color: black;
+    height: $solar-system-height-mobile;
+    width: calc(72vw + $planet-width-mobile);
+    margin: 0 auto;
+    position: relative;
+
+    &--hide {
+      display: none;
+    }
+  }
+}
+
+.ufo,
+.earth,
+.mars {
+  width: $planet-width-mobile;
+  height: $planet-width-mobile;
+  position: absolute;
+  top: calc(($solar-system-height-mobile - $planet-width-mobile) / 2);
+}
+
+.mars {
+  background: url("/quiz-mars-cartoon.png"), red;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 0;
+}
+.ufo {
+  background: url("/quiz-ufo-cartoon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: 0;
+}
+
+.earth {
+  background: url("/quiz-earth-cartoon.png"), blue;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  right: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .ufo,
+  .earth,
+  .mars {
+    width: $planet-width-tablet;
+    height: $planet-width-tablet;
+    top: calc(($solar-system-height-tablet - $planet-width-tablet) / 2);
+  }
+
+  .QuizPage {
+    &__solar-system {
+      height: $solar-system-height-tablet;
+      width: calc(72vw + $planet-width-tablet);
+      margin: 0 auto;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ufo,
+  .earth,
+  .mars {
+    width: $planet-width-desktop;
+    height: $planet-width-desktop;
+    top: calc(($solar-system-height-desktop - $planet-width-desktop) / 2);
+  }
+
+  .QuizPage {
+    &__solar-system {
+      height: $solar-system-height-desktop;
+      width: 80vw;
+      margin: 0 auto;
+    }
+  }
+}
+
+.flashing {
+  animation: flash 2s infinite;
+}
+
+@keyframes flash {
+  0%,
+  50%,
+  100% {
+    background-color: transparent;
+  }
+  25%,
+  75% {
+    background-color: red;
+  }
+}

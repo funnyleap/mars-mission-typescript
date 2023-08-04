@@ -1,0 +1,21 @@
+@use "../../styles/variables" as *;
+
+.QuizPage {
+  &__question-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    min-height: 20vh;
+  }
+
+  &__question-count {
+    font-weight: 800;
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+    gap: $mobile-gutter;
+
+    font-size: 10rem;
+  }
+}
