@@ -13,7 +13,7 @@ const BirthdayCardPage = () => {
         setPhotoOfTheDayUrl(data.url);
       })
       .catch(() => {
-        setPhotoOfTheDayUrl("/assets/birthday-card-default.jpg");
+        setPhotoOfTheDayUrl("./assets/birthday-card-default.jpg");
         setPhotoOfTheDayTitle("Mars Rover");
       });
   }, []);
@@ -46,7 +46,7 @@ const BirthdayCardPage = () => {
           <h5>NASA - Astronomy Picture of the Day:</h5>
           <img
             className="BirthdayCardPage__stamp"
-            src="/assets/birthday-card-stamp.png"
+            src="./assets/birthday-card-stamp.png"
             alt="NASA Postage Stamp"
           />
           {photoOfTheDayUrl && (
