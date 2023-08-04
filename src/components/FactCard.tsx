@@ -1,10 +1,14 @@
 import { Section } from "../data/factData";
 import "./FactCard.scss";
 
-const FactCard = (props: { section: Section }) => {
+interface FactCardProps {
+  section: Section;
+}
+
+const FactCard = ({ section }: FactCardProps) => {
   return (
     <div className="fact-section">
-      {props.section.facts.map((fact) => (
+      {section.facts.map((fact) => (
         <div className="fact-card">
           <h3>{fact.factTitle}</h3>
           <div className="card-content">
