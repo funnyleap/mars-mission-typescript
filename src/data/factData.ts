@@ -9,7 +9,7 @@ export interface Section {
   facts: Fact[];
 }
 
-const facts: Section[] = [
+export const facts: Section[] = [
   {
     sectionTitle: "Mars",
     facts: [
@@ -144,11 +144,3 @@ const facts: Section[] = [
     ],
   },
 ];
-
-// export const getFacts = (): Section[] => {
-//   return facts
-// };
-
-export const getFacts = () => {
-  return facts;
-};

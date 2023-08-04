@@ -1,14 +1,12 @@
 @use "../styles/variables" as *;
 
-.facts-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-}
-
 .page-header {
   text-align: center;
   margin: 0;
+}
+
+.fact-section-card {
+  list-style: none;
 }
 
 .section-header {
