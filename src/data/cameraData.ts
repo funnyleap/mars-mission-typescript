@@ -1,24 +1,24 @@
-interface cameraDetails {
+interface CameraDetails {
   name: string;
   code: string;
 }
 
-const fhaz: cameraDetails = {
+const fhaz: CameraDetails = {
   name: "Front Hazard Avoidance",
   code: "fhaz",
 };
 
-const rhaz: cameraDetails = {
+const rhaz: CameraDetails = {
   name: "Rear Hazard Avoidance",
   code: "rhaz",
 };
 
-const navcam: cameraDetails = {
+const navcam: CameraDetails = {
   name: "Navigation",
   code: "navcam",
 };
 
-const mast: cameraDetails = {
+const mast: CameraDetails = {
   name: "Mast",
   code: "mast",
 };

@@ -42,7 +42,7 @@ const RoversPage = () => {
 
   return (
     <div>
-      <h1>Mars Mission Rovers</h1>
+      <h1 className="Rovers__PageTitle">Mars Mission Rovers</h1>
       <div className="Rovers__ButtonContainer">
         <Button onClick={() => setCurrentRoverNameAndClearGallery("Curiosity")}>
           Curiosity

@@ -1,10 +1,10 @@
 @use "../styles/_variables.scss" as *;
 
-h1 {
+.Rovers__PageTitle {
   font-family: $dashboard-font;
   color: $color-primary-darker;
   text-align: center;
-  font: size 1.875em;
+  font-size: 1.875em;
 }
 
 .Rovers__ButtonContainer {
