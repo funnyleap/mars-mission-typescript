@@ -6,10 +6,16 @@
 
     &--correct {
       background-color: $button-dashboard-green;
+      &:hover {
+        background-color: $button-dashboard-green;
+      }
     }
 
     &--incorrect {
       background-color: $header-font-color;
+      &:hover {
+        background-color: $header-font-color;
+      }
     }
   }
 }
