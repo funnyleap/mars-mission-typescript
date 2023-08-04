@@ -14,11 +14,11 @@
   }
 }
 
-@mixin pageTitle() {  
+@mixin pageTitle() {
   text-shadow:
-      -0.03125em 0 $color-background,
-      0 0.03125em $color-background,
-      0.03125em 0 $color-background,
-      0 -0.03125em $color-background;
+    -0.03125em 0 $color-background,
+    0 0.03125em $color-background,
+    0.03125em 0 $color-background,
+    0 -0.03125em $color-background;
   color: $header-font-color;
 }
