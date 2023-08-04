@@ -1,6 +1,5 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import FactPage from "./pages/FactPage";
-import Gallery from "./pages/GalleryPage";
 import LandingPage from "./pages/LandingPage";
 import PageWithNavBar from "./components/PageWithNavBar";
 import BirthdayCardPage from "./pages/BirthdayCardPage";
@@ -21,7 +20,6 @@ const App = () => {
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/area51" element={<Area51Page />} />
           <Route path="/rovers" element={<RoversPage />} />
-          <Route path="/gallery" element={<Gallery />} />
           <Route path="/*" element={<Error404Page />} />
         </Route>
       </Routes>

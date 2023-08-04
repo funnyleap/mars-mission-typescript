@@ -1,0 +1,15 @@
+@use "../styles/_variables.scss" as *;
+
+.Rovers__PageTitle {
+  font-family: $dashboard-font;
+  color: $color-primary-darker;
+  text-align: center;
+  font-size: 1.875em;
+}
+
+.Rovers__ButtonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}

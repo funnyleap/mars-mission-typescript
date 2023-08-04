@@ -1,26 +1,73 @@
 import { useState, useEffect } from "react";
-import { RoverManifestDetails, getRoverManifestData } from "../api/nasaApi";
-import Rovers from "../components/Rover";
+import Rover from "../components/Rover";
 import Button from "../components/Button";
+import "./RoversPage.scss";
+import { roverCameras } from "../data/cameraData";
+import { GalleryPhotoDetails, getGalleryPhotos } from "../api/nasaApi";
+import Gallery from "../components/Gallery";
+
+const optimumSols = {
+  Curiosity: 1000,
+  Opportunity: 2000,
+  Spirit: 500,
+};
 
 const RoversPage = () => {
-  const [RoversDetails, setRoversDetails] = useState<RoverManifestDetails>();
+  const [currentRoverName, setCurrentRoverName] = useState<
+    "Curiosity" | "Opportunity" | "Spirit"
+  >("Curiosity");
+  const [currentCameraCode, setCurrentCameraCode] = useState<string>();
+  const [galleryPhotos, setGalleryPhotos] = useState<GalleryPhotoDetails[]>();
+
+  const setCurrentRoverNameAndClearGallery = (
+    roverName: "Curiosity" | "Opportunity" | "Spirit",
+  ) => {
+    setCurrentCameraCode(undefined);
+    setCurrentRoverName(roverName);
+  };
+
   useEffect(() => {
-    getRoverManifestData().then((data) => {
-      setRoversDetails(data);
-    });
-  }, []);
+    if (currentCameraCode) {
+      getGalleryPhotos(
+        currentRoverName,
+        optimumSols[currentRoverName],
+        currentCameraCode,
+      ).then((data) => {
+        setGalleryPhotos(data.photos);
+      });
+    } else {
+      setGalleryPhotos(undefined);
+    }
+  }, [currentRoverName, currentCameraCode]);
 
   return (
     <div>
-      <h1>Mars Mission Rovers</h1>
-      <Button onClick={() => setRoversDetails(RoversDetails)}>Curiosity</Button>
-      <Button>Opportunity</Button>
-      <Button>Spirit</Button>
-      {RoversDetails ? (
-        <Rovers roverDetails={RoversDetails} />
+      <h1 className="Rovers__PageTitle">Mars Mission Rovers</h1>
+      <div className="Rovers__ButtonContainer">
+        <Button onClick={() => setCurrentRoverNameAndClearGallery("Curiosity")}>
+          Curiosity
+        </Button>
+        <Button
+          onClick={() => setCurrentRoverNameAndClearGallery("Opportunity")}
+        >
+          Opportunity
+        </Button>
+        <Button onClick={() => setCurrentRoverNameAndClearGallery("Spirit")}>
+          Spirit
+        </Button>
+      </div>
+      <Rover rover={currentRoverName} />
+      <div className="Rovers__ButtonContainer">
+        {roverCameras[currentRoverName].map((cameraDetails) => (
+          <Button onClick={() => setCurrentCameraCode(cameraDetails.code)}>
+            {cameraDetails.name}
+          </Button>
+        ))}
+      </div>
+      {currentCameraCode && galleryPhotos ? (
+        <Gallery galleryPhotos={galleryPhotos} />
       ) : (
-        <p>Loading...</p>
+        currentCameraCode && <p>Loading...</p>
       )}
     </div>
   );

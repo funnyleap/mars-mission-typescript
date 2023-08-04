@@ -7,8 +7,7 @@
   grid-auto-rows: 12.5em;
   grid-auto-flow: dense;
   padding: 0.625em;
-  height: 100vh;
-  overflow: scroll;
+  overflow: auto;
 
   &__ImageContainer {
     display: flex;
