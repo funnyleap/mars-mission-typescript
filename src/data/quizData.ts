@@ -1,9 +1,9 @@
-interface Option {
+export interface Option {
   optionText: string;
   isCorrect: boolean;
 }
 
-interface Question {
+export interface Question {
   questionText: string;
   options: Option[];
 }

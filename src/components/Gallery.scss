@@ -1,0 +1,51 @@
+@use "../styles/_variables.scss" as *;
+
+.Gallery {
+  display: grid;
+  grid-gap: 0.625em;
+  grid-template-columns: repeat(auto-fit, minmax(12.5em, 1fr));
+  grid-auto-rows: 12.5em;
+  grid-auto-flow: dense;
+  padding: 0.625em;
+  height: 100vh;
+  overflow: scroll;
+
+  &__ImageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__ImageCard {
+    max-height: 100%;
+    width: auto;
+    vertical-align: middle;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.625em;
+    border: solid 0.312em $color-primary-darkest;
+
+    &:hover {
+      border: solid 0.312em $button-dashboard-hover;
+    }
+  }
+
+  &__ModalImage {
+    max-width: 100%;
+    border: solid 0.312em $color-primary-darkest;
+    border-radius: 0.625em;
+    flex-grow: 1;
+  }
+
+  &__ModalImageDetails {
+    font-size: 1.4em;
+    text-align: center;
+    font-family: $dashboard-font;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    flex-grow: 1;
+  }
+}
