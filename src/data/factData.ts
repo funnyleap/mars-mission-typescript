@@ -20,8 +20,7 @@ export const facts: Section[] = [
         factImage: "/images/redplanet.jpg",
       },
       {
-        
-        
+
         factTitle: "Mars in the Solar System",
         
         factText:
