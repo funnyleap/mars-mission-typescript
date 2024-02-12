@@ -20,14 +20,17 @@ export const facts: Section[] = [
         factImage: "/images/redplanet.jpg",
       },
       {
-       
+
         factTitle: "Mars in the Solar System",
+        
         factText:
           "Mars is the fourth planet from the Sun, a dusty, cold, desert world with a very thin atmosphere. Mars is also a dynamic planet with seasons, polar ice caps, canyons, extinct volcanoes, and evidence that it was even more active in the past.",
         factImage: "/images/marssolarsystem.jpg",
       },
       {
+        
         factTitle: "A day on Mars",
+
         factText:
           "A day on Mars is known as a 'sol', a Martian sol takes a little over 24 hours (24.6 to be exact). However, as Mars has a much longer orbit around the Sun than the Earth does, a Martian year actually takes 669.6 Martian sols (687 Earth days).",
         factImage: "/images/marsyear.jpg",
