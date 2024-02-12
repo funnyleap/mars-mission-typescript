@@ -26,8 +26,9 @@ export const facts: Section[] = [
         factImage: "/images/marssolarsystem.jpg",
       },
       {
-        factTitle: "A day on Mars",
         
+        factTitle: "A day on Mars",
+
         factText:
           "A day on Mars is known as a 'sol', a Martian sol takes a little over 24 hours (24.6 to be exact). However, as Mars has a much longer orbit around the Sun than the Earth does, a Martian year actually takes 669.6 Martian sols (687 Earth days).",
         factImage: "/images/marsyear.jpg",
