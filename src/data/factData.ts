@@ -21,6 +21,7 @@ export const facts: Section[] = [
       },
       {
         
+        
         factTitle: "Mars in the Solar System",
         
         factText:
